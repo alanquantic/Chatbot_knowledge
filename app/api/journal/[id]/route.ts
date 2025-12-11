@@ -3,6 +3,9 @@ import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth-options'
 import { prisma } from '@/lib/db'
 
+// Force dynamic rendering - prevents build-time database connection
+export const dynamic = 'force-dynamic'
+
 // DELETE - Eliminar una entrada del diario
 export async function DELETE(
   req: NextRequest,

@@ -3,6 +3,9 @@ import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth-options'
 import { prisma } from '@/lib/db'
 
+// Force dynamic rendering - prevents build-time database connection
+export const dynamic = 'force-dynamic'
+
 // GET - Obtener entradas del diario del usuario
 export async function GET(req: NextRequest) {
   try {
