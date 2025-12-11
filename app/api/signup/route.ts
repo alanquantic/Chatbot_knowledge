@@ -1,12 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
 import bcrypt from 'bcryptjs';
-import { prisma } from '@/lib/db';
+import { getPrismaClient } from '@/lib/db';
 
 // Force dynamic rendering - prevents build-time database connection
 export const dynamic = 'force-dynamic'
 
 export async function POST(request: NextRequest) {
   try {
+    const prisma = getPrismaClient();
     const body = await request.json();
     const { email, password, name } = body;
 

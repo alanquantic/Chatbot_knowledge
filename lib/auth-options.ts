@@ -18,7 +18,8 @@ export const authOptions: NextAuthOptions = {
         }
 
         // Dynamic import to prevent build-time database connection
-        const { prisma } = await import('@/lib/db');
+        const { getPrismaClient } = await import('@/lib/db');
+        const prisma = getPrismaClient();
 
         const user = await prisma.user.findUnique({
           where: { email: credentials.email },

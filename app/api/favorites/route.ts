@@ -1,13 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/lib/auth-options';
-import { prisma } from '@/lib/db';
+import { getPrismaClient } from '@/lib/db';
 
 export const dynamic = 'force-dynamic';
 
 // GET all favorites for current user
 export async function GET() {
   try {
+    const prisma = getPrismaClient();
     const session = await getServerSession(authOptions);
 
     if (!session?.user?.id) {
@@ -35,6 +36,7 @@ export async function GET() {
 // POST add a favorite
 export async function POST(request: NextRequest) {
   try {
+    const prisma = getPrismaClient();
     const session = await getServerSession(authOptions);
 
     if (!session?.user?.id) {
@@ -82,6 +84,7 @@ export async function POST(request: NextRequest) {
 // DELETE remove a favorite
 export async function DELETE(request: NextRequest) {
   try {
+    const prisma = getPrismaClient();
     const session = await getServerSession(authOptions);
 
     if (!session?.user?.id) {
