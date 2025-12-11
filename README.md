@@ -232,8 +232,8 @@ DATABASE_URL="postgresql://usuario:password@localhost:5432/grabovoi_db?schema=pu
 NEXTAUTH_SECRET="tu-secreto-seguro-de-32-caracteres-minimo"
 NEXTAUTH_URL="http://localhost:3000"
 
-# Abacus.ai (opcional - para chatbot)
-ABACUSAI_API_KEY="tu-api-key"
+# OpenAI (para análisis IA + chatbot)
+OPENAI_API_KEY="tu-api-key"
 ```
 
 ### Generar NEXTAUTH_SECRET

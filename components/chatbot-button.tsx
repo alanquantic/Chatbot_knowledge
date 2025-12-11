@@ -1,14 +1,94 @@
 "use client";
 
-import { useState } from 'react';
-import { MessageCircle, X } from 'lucide-react';
+import { useMemo, useRef, useState } from 'react';
+import { MessageCircle, Send, X } from 'lucide-react';
+import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 
 export function ChatbotButton() {
   const [isOpen, setIsOpen] = useState(false);
+  const [input, setInput] = useState<string>('');
+  const [isSending, setIsSending] = useState<boolean>(false);
+  const endRef = useRef<HTMLDivElement | null>(null);
+
+  type ChatRole = 'user' | 'assistant';
+  type ChatMessage = {
+    role: ChatRole;
+    content: string;
+  };
+
+  const initialMessages: ChatMessage[] = useMemo(
+    () => [
+      {
+        role: 'assistant',
+        content:
+          'Hola. Soy tu asistente. Pregúntame sobre secuencias numéricas, práctica o cómo usar el diario.',
+      },
+    ],
+    []
+  );
+
+  const [messages, setMessages] = useState<ChatMessage[]>(initialMessages);
 
   const toggleChatbot = () => {
     setIsOpen(!isOpen);
+  };
+
+  const scrollToBottom = () => {
+    endRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const sendMessage = async (text: string) => {
+    const trimmed = text.trim();
+    if (!trimmed) return;
+
+    setIsSending(true);
+    setInput('');
+
+    const nextMessages: ChatMessage[] = [
+      ...messages,
+      { role: 'user', content: trimmed },
+    ];
+    setMessages(nextMessages);
+
+    try {
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          messages: nextMessages.map((m) => ({
+            role: m.role,
+            content: m.content,
+          })),
+        }),
+      });
+
+      if (!res.ok) {
+        const raw = await res.text();
+        throw new Error(raw || `HTTP ${res.status}`);
+      }
+
+      const data: unknown = await res.json();
+      const message = (data as { message?: string }).message;
+      if (!message) {
+        throw new Error('Respuesta inválida del servidor');
+      }
+
+      setMessages([...nextMessages, { role: 'assistant', content: message }]);
+      requestAnimationFrame(scrollToBottom);
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : 'Error desconocido';
+      setMessages([
+        ...nextMessages,
+        {
+          role: 'assistant',
+          content: `No pude responder en este momento. Detalle: ${msg}`,
+        },
+      ]);
+    } finally {
+      setIsSending(false);
+      requestAnimationFrame(scrollToBottom);
+    }
   };
 
   return (
@@ -50,13 +130,51 @@ export function ChatbotButton() {
               </button>
             </div>
 
-            {/* Iframe del chatbot */}
-            <iframe
-              src="https://apps.abacus.ai/chatllm/?appId=11578f0026&hideTopBar=2"
-              className="flex-1 w-full border-0"
-              title="Chatbot Grabovoi"
-              allow="clipboard-read; clipboard-write"
-            />
+            {/* Chat content */}
+            <div className="flex-1 w-full overflow-y-auto p-4 space-y-3">
+              {messages.map((m, idx) => (
+                <div
+                  key={idx}
+                  className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}
+                >
+                  <div
+                    className={[
+                      'max-w-[85%] rounded-2xl px-4 py-2 text-sm whitespace-pre-wrap',
+                      m.role === 'user'
+                        ? 'bg-purple-600 text-white'
+                        : 'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100',
+                    ].join(' ')}
+                  >
+                    {m.content}
+                  </div>
+                </div>
+              ))}
+              <div ref={endRef} />
+            </div>
+
+            {/* Input */}
+            <div className="border-t border-gray-200 dark:border-gray-800 p-3 flex gap-2">
+              <Input
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                placeholder="Escribe tu pregunta..."
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') {
+                    void sendMessage(input);
+                  }
+                }}
+                disabled={isSending}
+              />
+              <Button
+                type="button"
+                onClick={() => void sendMessage(input)}
+                disabled={isSending || !input.trim()}
+                className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700"
+                title="Enviar"
+              >
+                <Send className="h-4 w-4" />
+              </Button>
+            </div>
           </div>
         </div>
       )}

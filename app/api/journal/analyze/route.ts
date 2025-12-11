@@ -6,6 +6,11 @@ import { getPrismaClient } from '@/lib/db'
 // Force dynamic rendering - prevents build-time database connection
 export const dynamic = 'force-dynamic'
 
+type OpenAIChatCompletionRequestMessage = {
+  role: 'system' | 'user' | 'assistant'
+  content: string
+}
+
 // POST - Analizar patrones y generar insights con IA
 export async function POST(req: NextRequest) {
   try {
@@ -96,24 +101,35 @@ Responde en JSON con la siguiente estructura:
 
 Responde con JSON puro, sin bloques de código ni formato markdown.`
 
-    const response = await fetch('https://apps.abacus.ai/v1/chat/completions', {
+    const openAiApiKey = process.env.OPENAI_API_KEY
+    if (!openAiApiKey) {
+      return NextResponse.json(
+        { error: 'OPENAI_API_KEY no está configurada en el servidor' },
+        { status: 500 }
+      )
+    }
+
+    const messages: OpenAIChatCompletionRequestMessage[] = [
+      {
+        role: 'system',
+        content:
+          'Eres un experto analista de prácticas espirituales con las enseñanzas de Grigori Grabovoi. Proporcionas insights precisos y sugerencias prácticas basadas en datos.',
+      },
+      {
+        role: 'user',
+        content: prompt,
+      },
+    ]
+
+    const response = await fetch('https://api.openai.com/v1/chat/completions', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${process.env.ABACUSAI_API_KEY}`
+        Authorization: `Bearer ${openAiApiKey}`,
       },
       body: JSON.stringify({
         model: 'gpt-4.1-mini',
-        messages: [
-          {
-            role: 'system',
-            content: 'Eres un experto analista de prácticas espirituales con las enseñanzas de Grigori Grabovoi. Proporcionas insights precisos y sugerencias prácticas basadas en datos.'
-          },
-          {
-            role: 'user',
-            content: prompt
-          }
-        ],
+        messages,
         response_format: { type: 'json_object' },
         max_tokens: 2000,
         temperature: 0.7
