@@ -1,11 +1,10 @@
 import { NextAuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
-import { PrismaAdapter } from '@next-auth/prisma-adapter';
 import bcrypt from 'bcryptjs';
-import { prisma } from '@/lib/db';
 
 export const authOptions: NextAuthOptions = {
-  adapter: PrismaAdapter(prisma),
+  // Note: PrismaAdapter removed - not needed with JWT strategy
+  // Sessions are stored client-side, not in database
   providers: [
     CredentialsProvider({
       name: 'Credentials',
@@ -17,6 +16,9 @@ export const authOptions: NextAuthOptions = {
         if (!credentials?.email || !credentials?.password) {
           return null;
         }
+
+        // Dynamic import to prevent build-time database connection
+        const { prisma } = await import('@/lib/db');
 
         const user = await prisma.user.findUnique({
           where: { email: credentials.email },
