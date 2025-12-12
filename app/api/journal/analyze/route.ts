@@ -128,7 +128,7 @@ Responde con JSON puro, sin bloques de código ni formato markdown.`
         Authorization: `Bearer ${openAiApiKey}`,
       },
       body: JSON.stringify({
-        model: 'gpt-4.1-mini',
+        model: 'gpt-5-mini',
         messages,
         response_format: { type: 'json_object' },
         max_tokens: 2000,
