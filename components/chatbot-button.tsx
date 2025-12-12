@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useRef, useState } from 'react';
-import { MessageCircle, Send, X } from 'lucide-react';
+import { Loader2, MessageCircle, Send, X } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 
@@ -94,24 +94,22 @@ export function ChatbotButton() {
   return (
     <>
       {/* Botón flotante visible */}
-      <button
-        onClick={toggleChatbot}
-        className="fixed bottom-6 right-6 z-50 h-14 w-14 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-2xl hover:shadow-purple-500/50 hover:scale-110 transition-all duration-300 flex items-center justify-center group"
-        aria-label="Abrir Asistente Grabovoi"
-      >
-        {isOpen ? (
-          <X className="h-6 w-6" />
-        ) : (
+      {!isOpen && (
+        <button
+          onClick={toggleChatbot}
+          className="fixed bottom-6 right-6 z-50 h-14 w-14 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-2xl hover:shadow-purple-500/50 hover:scale-110 transition-all duration-300 flex items-center justify-center group"
+          aria-label="Abrir Asistente Grabovoi"
+        >
           <MessageCircle className="h-6 w-6 animate-pulse" />
-        )}
-        <span className="absolute bottom-16 right-0 bg-gray-900 text-white text-xs px-3 py-1 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-          Asistente Grabovoi
-        </span>
-      </button>
+          <span className="absolute bottom-16 right-0 bg-gray-900 text-white text-xs px-3 py-1 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+            Asistente Grabovoi
+          </span>
+        </button>
+      )}
 
       {/* Modal del chatbot */}
       {isOpen && (
-        <div className="fixed inset-0 z-40 flex items-end justify-end p-4 pointer-events-none">
+        <div className="fixed inset-0 z-[70] flex items-end justify-end p-4 pointer-events-none">
           <div className="pointer-events-auto w-full max-w-md h-[600px] bg-white dark:bg-gray-900 rounded-2xl shadow-2xl overflow-hidden flex flex-col">
             {/* Header */}
             <div className="bg-gradient-to-r from-purple-600 to-pink-600 p-4 flex items-center justify-between">
@@ -149,6 +147,20 @@ export function ChatbotButton() {
                   </div>
                 </div>
               ))}
+              {isSending && (
+                <div className="flex justify-start">
+                  <div className="max-w-[85%] rounded-2xl px-4 py-2 text-sm bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100">
+                    <span className="inline-flex items-center gap-2">
+                      <span className="text-xs text-muted-foreground">Pensando</span>
+                      <span className="inline-flex gap-1">
+                        <span className="h-1.5 w-1.5 rounded-full bg-current opacity-60 animate-pulse" />
+                        <span className="h-1.5 w-1.5 rounded-full bg-current opacity-60 animate-pulse [animation-delay:150ms]" />
+                        <span className="h-1.5 w-1.5 rounded-full bg-current opacity-60 animate-pulse [animation-delay:300ms]" />
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              )}
               <div ref={endRef} />
             </div>
 
@@ -172,7 +184,11 @@ export function ChatbotButton() {
                 className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700"
                 title="Enviar"
               >
-                <Send className="h-4 w-4" />
+                {isSending ? (
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                ) : (
+                  <Send className="h-4 w-4" />
+                )}
               </Button>
             </div>
           </div>

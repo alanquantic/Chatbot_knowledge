@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth-options'
 import { getPrismaClient } from '@/lib/db'
+import { z } from 'zod'
 
 // Force dynamic rendering - prevents build-time database connection
 export const dynamic = 'force-dynamic'
@@ -9,6 +10,48 @@ export const dynamic = 'force-dynamic'
 type OpenAIChatCompletionRequestMessage = {
   role: 'system' | 'user' | 'assistant'
   content: string
+}
+
+type ChatContentPart = {
+  type?: unknown
+  text?: unknown
+  content?: unknown
+}
+
+function extractTextDeep(value: unknown, depth: number): string {
+  if (depth <= 0) return ''
+  if (typeof value === 'string') return value
+  if (Array.isArray(value)) return value.map((v) => extractTextDeep(v, depth - 1)).filter(Boolean).join('\n')
+  if (typeof value !== 'object' || value === null) return ''
+
+  const obj = value as Record<string, unknown>
+  const candidates: unknown[] = []
+  if (Object.prototype.hasOwnProperty.call(obj, 'text')) candidates.push(obj.text)
+  if (Object.prototype.hasOwnProperty.call(obj, 'value')) candidates.push(obj.value)
+  if (Object.prototype.hasOwnProperty.call(obj, 'content')) candidates.push(obj.content)
+
+  return candidates
+    .map((c) => extractTextDeep(c, depth - 1))
+    .filter((t) => t.trim().length > 0)
+    .join('\n')
+}
+
+function extractAssistantText(rawContent: unknown): string {
+  const text = extractTextDeep(rawContent, 5).trim()
+  return text
+}
+
+function describeContentShape(rawContent: unknown): { kind: string; keys?: string[]; length?: number } {
+  if (typeof rawContent === 'string') return { kind: 'string', length: rawContent.length }
+  if (Array.isArray(rawContent)) {
+    const first = rawContent[0]
+    if (typeof first === 'object' && first !== null) {
+      return { kind: 'array', length: rawContent.length, keys: Object.keys(first as Record<string, unknown>).slice(0, 15) }
+    }
+    return { kind: 'array', length: rawContent.length }
+  }
+  if (typeof rawContent === 'object' && rawContent !== null) return { kind: 'object', keys: Object.keys(rawContent as Record<string, unknown>).slice(0, 15) }
+  return { kind: typeof rawContent }
 }
 
 // POST - Analizar patrones y generar insights con IA
@@ -62,7 +105,7 @@ export async function POST(req: NextRequest) {
     }
 
     // Llamar a la IA para análisis
-    const prompt = `Eres un experto analista de prácticas espirituales con Grabovoi. Analiza el siguiente historial de prácticas del usuario y proporciona insights profundos y sugerencias personalizadas.
+    const prompt = `Eres un experto analista de prácticas espirituales con Grabovoi. Analiza el siguiente historial de prácticas del usuario y proporciona insights y sugerencias personalizadas.
 
 Datos del usuario:
 - Total de prácticas registradas: ${analysisData.totalEntries}
@@ -99,6 +142,10 @@ Responde en JSON con la siguiente estructura:
   "summary": "Resumen general del análisis en 2-3 líneas"
 }
 
+Reglas de longitud:
+- description (insights y suggestions): máximo 220 caracteres cada una
+- summary: máximo 320 caracteres
+
 Responde con JSON puro, sin bloques de código ni formato markdown.`
 
     const openAiApiKey = process.env.OPENAI_API_KEY
@@ -131,8 +178,7 @@ Responde con JSON puro, sin bloques de código ni formato markdown.`
         model: 'gpt-5-mini',
         messages,
         response_format: { type: 'json_object' },
-        max_tokens: 2000,
-        temperature: 0.7
+        max_completion_tokens: 2600,
       })
     })
 
@@ -140,8 +186,55 @@ Responde con JSON puro, sin bloques de código ni formato markdown.`
       throw new Error(`IA API error: ${response.statusText}`)
     }
 
-    const aiResponse = await response.json()
-    const analysisResult = JSON.parse(aiResponse.choices[0].message.content)
+    const aiResponse: unknown = await response.json()
+    const parsed = z
+      .object({
+        model: z.string().optional(),
+        choices: z.array(
+          z.object({
+            finish_reason: z.string().optional(),
+            message: z.object({
+              content: z.unknown().optional(),
+              refusal: z.string().nullable().optional(),
+            }),
+          })
+        ),
+      })
+      .safeParse(aiResponse)
+
+    if (!parsed.success) {
+      return NextResponse.json(
+        { error: 'Respuesta inválida del proveedor de IA' },
+        { status: 502 }
+      )
+    }
+
+    const choice0 = parsed.data.choices[0]
+    const message = choice0?.message
+    const content = extractAssistantText(message?.content)
+    const refusal = typeof message?.refusal === 'string' ? message.refusal.trim() : ''
+
+    if (content.length === 0) {
+      if (refusal.length > 0) {
+        return NextResponse.json(
+          { error: `El proveedor de IA rechazó la solicitud: ${refusal}` },
+          { status: 403 }
+        )
+      }
+      return NextResponse.json(
+        {
+          error: 'Respuesta vacía del proveedor de IA',
+          details: {
+            model: parsed.data.model ?? null,
+            finishReason: choice0?.finish_reason ?? null,
+            contentShape: describeContentShape(message?.content),
+          },
+        },
+        { status: 502 }
+      )
+    }
+
+    const analysisResult = JSON.parse(content)
 
     return NextResponse.json(analysisResult)
   } catch (error) {

@@ -52,17 +52,18 @@ export function Navbar() {
   return (
     <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto max-w-7xl px-4">
-        <div className="flex h-16 items-center justify-between">
-          <Link href="/" className="flex items-center space-x-2">
-            <div className="rounded-lg bg-gradient-to-br from-purple-600 to-indigo-600 p-2">
-              <span className="text-xl font-bold text-white">GG</span>
+        <div className="flex min-h-16 items-center gap-3 py-2 lg:py-0">
+          <Link href="/" className="flex shrink-0 items-center space-x-2 lg:flex-col lg:items-start lg:space-x-0 lg:space-y-1 xl:flex-row xl:items-center xl:space-x-2 xl:space-y-0">
+            <div className="rounded-lg bg-gradient-to-br from-purple-600 to-indigo-600 p-1.5 sm:p-2">
+              <span className="text-lg sm:text-xl font-bold text-white">GG</span>
             </div>
-            <span className="hidden font-bold text-lg sm:inline-block">
+            <span className="hidden max-w-[10rem] truncate font-bold text-sm sm:text-base lg:text-xs xl:text-lg sm:inline-block">
               Grigori Grabovoi
             </span>
           </Link>
 
-          <div className="hidden lg:flex items-center space-x-1">
+          {/* Desktop menu: no horizontal scrolling; collapse earlier on smaller widths */}
+          <div className="hidden lg:flex flex-1 min-w-0 items-center justify-center gap-1 px-1">
             {navItems?.map?.((item) => {
               const Icon = item?.icon;
               const isActive = pathname === item?.href;
@@ -71,9 +72,9 @@ export function Navbar() {
                   <Button
                     variant={isActive ? 'default' : 'ghost'}
                     size="sm"
-                    className="flex items-center space-x-2"
+                    className="flex items-center space-x-1 px-2 text-xs 2xl:space-x-2 2xl:px-3 2xl:text-sm"
                   >
-                    {Icon && <Icon className="h-4 w-4" />}
+                    {Icon && <Icon className="h-4 w-4 2xl:h-4 2xl:w-4" />}
                     <span>{item?.label}</span>
                   </Button>
                 </Link>
@@ -81,7 +82,7 @@ export function Navbar() {
             }) ?? null}
           </div>
 
-          <div className="flex items-center space-x-2">
+          <div className="flex shrink-0 items-center space-x-2">
             <Sheet>
               <SheetTrigger asChild>
                 <Button
@@ -93,7 +94,7 @@ export function Navbar() {
                   <Menu className="h-5 w-5" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="p-4 pt-10">
+              <SheetContent side="right" className="p-4 pt-10 overflow-y-auto">
                 <div className="flex flex-col gap-1">
                   {navItems?.map?.((item) => {
                     const Icon = item?.icon;
