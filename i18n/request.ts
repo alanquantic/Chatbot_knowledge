@@ -1,8 +1,8 @@
 import { getRequestConfig } from 'next-intl/server';
-import type { AbstractIntlMessages } from 'next-intl';
 import { defaultLocale, isLocale, type Locale } from '@/i18n/locales';
 
-type MessagesModule = { default: AbstractIntlMessages };
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type MessagesModule = { default: any };
 
 const messageLoaders: Record<Locale, () => Promise<MessagesModule>> = {
   es: async () => import('@/messages/es.json'),
