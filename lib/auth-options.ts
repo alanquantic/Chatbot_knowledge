@@ -17,12 +17,14 @@ export const authOptions: NextAuthOptions = {
           return null;
         }
 
+        const normalizedEmail = credentials.email.trim().toLowerCase();
+
         // Dynamic import to prevent build-time database connection
         const { getPrismaClient } = await import('@/lib/db');
         const prisma = getPrismaClient();
 
         const user = await prisma.user.findUnique({
-          where: { email: credentials.email },
+          where: { email: normalizedEmail },
         });
 
         if (!user) {
@@ -56,12 +58,16 @@ export const authOptions: NextAuthOptions = {
     async jwt({ token, user }) {
       if (user) {
         token.id = user.id;
+        token.email = user.email;
+        token.name = user.name;
       }
       return token;
     },
     async session({ session, token }) {
       if (session?.user) {
         session.user.id = token.id as string;
+        session.user.email = (token.email as string | null | undefined) ?? session.user.email;
+        session.user.name = (token.name as string | null | undefined) ?? session.user.name;
       }
       return session;
     },

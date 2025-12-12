@@ -55,7 +55,7 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-8 pt-6 border-t text-center text-sm text-muted-foreground">
-          <p className="flex items-center justify-center space-x-1">
+          <p className="flex flex-wrap items-center justify-center gap-x-1 gap-y-1 text-center">
             <span>Creado por</span>
             <span className="font-semibold text-purple-600 dark:text-purple-400">Leviathan OS</span>
             <span>para compartir las enseñanzas de Grigori Grabovoi</span>

@@ -236,6 +236,18 @@ NEXTAUTH_URL="http://localhost:3000"
 OPENAI_API_KEY="tu-api-key"
 ```
 
+## 🟣 Neon + Vercel (DB vacía)
+
+Si apuntas `DATABASE_URL` a una **base vacía**, necesitas aplicar migraciones antes de usar `/api/signup`, login, diario o favoritos.
+
+- **Local**:
+  - `npx prisma migrate dev --name init`
+- **Vercel**:
+  - El proyecto ya incluye el script `vercel-build` que ejecuta:
+    - `prisma migrate deploy`
+    - `next build`
+  - Asegúrate de configurar `DATABASE_URL` (idealmente **pooled** para serverless) en Vercel.
+
 ### Generar NEXTAUTH_SECRET
 
 ```bash

@@ -23,9 +23,9 @@ export function getPrismaClient(): PrismaClient {
 
   const prisma = createPrismaClient()
 
-  if (process.env.NODE_ENV !== 'production') {
-    globalForPrisma.prisma = prisma
-  }
+  // Cache PrismaClient globally to avoid exhausting DB connections,
+  // especially in serverless environments (e.g., Vercel) where modules can be reused.
+  globalForPrisma.prisma = prisma
 
   return prisma
 }

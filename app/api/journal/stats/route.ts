@@ -43,16 +43,23 @@ export async function GET(req: NextRequest) {
       })
     }
 
-    // Obtener entradas recientes para análisis
+    const { searchParams } = new URL(req.url)
+    const includeAnalytics = searchParams.get('includeAnalytics') === 'true'
+
+    if (!includeAnalytics) {
+      return NextResponse.json({ stats })
+    }
+
+    // Obtener entradas recientes para análisis (opcional)
     const entries = await prisma.journalEntry.findMany({
       where: { userId: user.id },
       orderBy: { date: 'desc' },
-      take: 100
+      take: 100,
     })
 
     // Calcular estadísticas adicionales
     const totalEntries = entries.length
-    
+
     // Secuencias más usadas
     const sequenceCount: Record<string, number> = {}
     entries.forEach((entry: any) => {
@@ -67,9 +74,11 @@ export async function GET(req: NextRequest) {
 
     // Mejora de ánimo promedio
     const moodImprovements = entries.map((e: any) => e.moodAfter - e.moodBefore)
-    const avgMoodImprovement = moodImprovements.length > 0
-      ? moodImprovements.reduce((a: number, b: number) => a + b, 0) / moodImprovements.length
-      : 0
+    const avgMoodImprovement =
+      moodImprovements.length > 0
+        ? moodImprovements.reduce((a: number, b: number) => a + b, 0) /
+          moodImprovements.length
+        : 0
 
     // Prácticas por día de la semana
     const dayOfWeekCount: Record<number, number> = {}
@@ -79,9 +88,7 @@ export async function GET(req: NextRequest) {
     })
 
     // Mejor día de la semana
-    const bestDay = Object.entries(dayOfWeekCount)
-      .sort(([, a], [, b]) => b - a)[0]
-    
+    const bestDay = Object.entries(dayOfWeekCount).sort(([, a], [, b]) => b - a)[0]
     const dayNames = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado']
     const bestDayName = bestDay ? dayNames[parseInt(bestDay[0])] : null
 
@@ -91,11 +98,8 @@ export async function GET(req: NextRequest) {
       const hour = new Date(entry.date).getHours()
       hourCount[hour] = (hourCount[hour] || 0) + 1
     })
-    const bestHour = Object.entries(hourCount)
-      .sort(([, a], [, b]) => b - a)[0]
-    const bestHourFormatted = bestHour 
-      ? `${bestHour[0].padStart(2, '0')}:00` 
-      : null
+    const bestHour = Object.entries(hourCount).sort(([, a], [, b]) => b - a)[0]
+    const bestHourFormatted = bestHour ? `${bestHour[0].padStart(2, '0')}:00` : null
 
     // Prácticas en los últimos 7 días
     const sevenDaysAgo = new Date()
@@ -119,8 +123,8 @@ export async function GET(req: NextRequest) {
         recentPractices,
         thisMonthPractices,
         practicesByDay: dayOfWeekCount,
-        practicesByHour: hourCount
-      }
+        practicesByHour: hourCount,
+      },
     })
   } catch (error) {
     console.error('Error al obtener estadísticas:', error)

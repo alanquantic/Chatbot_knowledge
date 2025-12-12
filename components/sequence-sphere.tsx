@@ -19,12 +19,14 @@ const sizeClasses = {
     text: 'text-xs',
   },
   lg: {
-    container: 'w-40 h-40 text-base',
-    text: 'text-sm',
+    // Mobile-first: keep spheres within 2-column grids on small screens.
+    container: 'w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 text-base',
+    text: 'text-xs md:text-sm',
   },
   xl: {
-    container: 'w-48 h-48 md:w-56 md:h-56 text-lg',
-    text: 'text-base',
+    // Mobile-first: avoid overflow on 320–375px widths when used in 2-column grids.
+    container: 'w-32 h-32 sm:w-40 sm:h-40 md:w-56 md:h-56 text-lg',
+    text: 'text-sm md:text-base',
   },
 };
 

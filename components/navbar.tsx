@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useSession, signOut } from 'next-auth/react';
 import { Button } from '@/components/ui/button';
+import { Sheet, SheetClose, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import {
   BookOpen,
   Hash,
@@ -13,6 +14,7 @@ import {
   LogOut,
   LogIn,
   Home,
+  Menu,
   Sun,
   Moon,
   Microscope,
@@ -60,7 +62,7 @@ export function Navbar() {
             </span>
           </Link>
 
-          <div className="hidden md:flex items-center space-x-1">
+          <div className="hidden lg:flex items-center space-x-1">
             {navItems?.map?.((item) => {
               const Icon = item?.icon;
               const isActive = pathname === item?.href;
@@ -80,6 +82,41 @@ export function Navbar() {
           </div>
 
           <div className="flex items-center space-x-2">
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="lg:hidden"
+                  aria-label="Open menu"
+                >
+                  <Menu className="h-5 w-5" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="p-4 pt-10">
+                <div className="flex flex-col gap-1">
+                  {navItems?.map?.((item) => {
+                    const Icon = item?.icon;
+                    const isActive = pathname === item?.href;
+                    return (
+                      <SheetClose asChild key={item?.href}>
+                        <Link href={item?.href ?? '#'}>
+                          <Button
+                            variant={isActive ? 'default' : 'ghost'}
+                            size="sm"
+                            className="w-full justify-start"
+                          >
+                            {Icon && <Icon className="mr-2 h-4 w-4" />}
+                            <span>{item?.label}</span>
+                          </Button>
+                        </Link>
+                      </SheetClose>
+                    );
+                  }) ?? null}
+                </div>
+              </SheetContent>
+            </Sheet>
+
             {mounted && (
               <Button
                 variant="ghost"
@@ -113,26 +150,6 @@ export function Navbar() {
               </Link>
             )}
           </div>
-        </div>
-
-        {/* Mobile menu */}
-        <div className="md:hidden pb-3 flex flex-wrap gap-1">
-          {navItems?.map?.((item) => {
-            const Icon = item?.icon;
-            const isActive = pathname === item?.href;
-            return (
-              <Link key={item?.href} href={item?.href ?? '#'}>
-                <Button
-                  variant={isActive ? 'default' : 'ghost'}
-                  size="sm"
-                  className="flex items-center space-x-1 text-xs"
-                >
-                  {Icon && <Icon className="h-3 w-3" />}
-                  <span>{item?.label}</span>
-                </Button>
-              </Link>
-            );
-          }) ?? null}
         </div>
       </div>
     </nav>

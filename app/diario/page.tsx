@@ -338,23 +338,23 @@ export default function DiarioPage() {
         )}
 
         <Tabs defaultValue="nueva" className="w-full">
-          <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 mb-8">
-            <TabsTrigger value="nueva" className="flex items-center justify-center gap-2">
+          <TabsList className="grid h-auto w-full grid-cols-2 gap-2 mb-8 lg:grid-cols-4">
+            <TabsTrigger value="nueva" className="flex items-center justify-center gap-1 px-2 text-xs sm:gap-2 sm:px-3 sm:text-sm">
               <PlusCircle className="h-4 w-4" />
               <span className="hidden sm:inline">Nueva Entrada</span>
               <span className="sm:hidden">Nueva</span>
             </TabsTrigger>
-            <TabsTrigger value="entradas" className="flex items-center justify-center gap-2">
+            <TabsTrigger value="entradas" className="flex items-center justify-center gap-1 px-2 text-xs sm:gap-2 sm:px-3 sm:text-sm">
               <BookOpen className="h-4 w-4" />
               <span className="hidden sm:inline">Mis Entradas</span>
               <span className="sm:hidden">Entradas</span>
             </TabsTrigger>
-            <TabsTrigger value="estadisticas" className="flex items-center justify-center gap-2">
+            <TabsTrigger value="estadisticas" className="flex items-center justify-center gap-1 px-2 text-xs sm:gap-2 sm:px-3 sm:text-sm">
               <BarChart3 className="h-4 w-4" />
               <span className="hidden sm:inline">Estadísticas</span>
               <span className="sm:hidden">Stats</span>
             </TabsTrigger>
-            <TabsTrigger value="insights" className="flex items-center justify-center gap-2">
+            <TabsTrigger value="insights" className="flex items-center justify-center gap-1 px-2 text-xs sm:gap-2 sm:px-3 sm:text-sm">
               <Brain className="h-4 w-4" />
               <span>Insights</span>
             </TabsTrigger>
