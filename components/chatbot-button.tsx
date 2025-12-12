@@ -4,8 +4,10 @@ import { useMemo, useRef, useState } from 'react';
 import { Loader2, MessageCircle, Send, X } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
+import { useTranslations } from 'next-intl';
 
 export function ChatbotButton() {
+  const t = useTranslations('chatbot');
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState<string>('');
   const [isSending, setIsSending] = useState<boolean>(false);
@@ -21,11 +23,10 @@ export function ChatbotButton() {
     () => [
       {
         role: 'assistant',
-        content:
-          'Hola. Soy tu asistente. Pregúntame sobre secuencias numéricas, práctica o cómo usar el diario.',
+        content: t('welcomeMessage'),
       },
     ],
-    []
+    [t]
   );
 
   const [messages, setMessages] = useState<ChatMessage[]>(initialMessages);
@@ -71,18 +72,18 @@ export function ChatbotButton() {
       const data: unknown = await res.json();
       const message = (data as { message?: string }).message;
       if (!message) {
-        throw new Error('Respuesta inválida del servidor');
+        throw new Error(t('invalidResponse'));
       }
 
       setMessages([...nextMessages, { role: 'assistant', content: message }]);
       requestAnimationFrame(scrollToBottom);
     } catch (err) {
-      const msg = err instanceof Error ? err.message : 'Error desconocido';
+      const msg = err instanceof Error ? err.message : t('unknownError');
       setMessages([
         ...nextMessages,
         {
           role: 'assistant',
-          content: `No pude responder en este momento. Detalle: ${msg}`,
+          content: `${t('errorMessage')} ${msg}`,
         },
       ]);
     } finally {
@@ -93,16 +94,16 @@ export function ChatbotButton() {
 
   return (
     <>
-      {/* Botón flotante visible */}
+      {/* Floating button visible */}
       {!isOpen && (
         <button
           onClick={toggleChatbot}
           className="fixed bottom-6 right-6 z-50 h-14 w-14 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-2xl hover:shadow-purple-500/50 hover:scale-110 transition-all duration-300 flex items-center justify-center group"
-          aria-label="Abrir Asistente Grabovoi"
+          aria-label={t('openAssistant')}
         >
           <MessageCircle className="h-6 w-6 animate-pulse" />
           <span className="absolute bottom-16 right-0 bg-gray-900 text-white text-xs px-3 py-1 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-            Asistente Grabovoi
+            {t('assistantName')}
           </span>
         </button>
       )}
@@ -116,8 +117,8 @@ export function ChatbotButton() {
               <div className="flex items-center gap-3">
                 <MessageCircle className="h-6 w-6 text-white" />
                 <div>
-                  <h3 className="text-white font-semibold">Asistente Grabovoi</h3>
-                  <p className="text-purple-100 text-xs">Experto en enseñanzas</p>
+                  <h3 className="text-white font-semibold">{t('assistantName')}</h3>
+                  <p className="text-purple-100 text-xs">{t('expertIn')}</p>
                 </div>
               </div>
               <button
@@ -151,7 +152,7 @@ export function ChatbotButton() {
                 <div className="flex justify-start">
                   <div className="max-w-[85%] rounded-2xl px-4 py-2 text-sm bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100">
                     <span className="inline-flex items-center gap-2">
-                      <span className="text-xs text-muted-foreground">Pensando</span>
+                      <span className="text-xs text-muted-foreground">{t('thinking')}</span>
                       <span className="inline-flex gap-1">
                         <span className="h-1.5 w-1.5 rounded-full bg-current opacity-60 animate-pulse" />
                         <span className="h-1.5 w-1.5 rounded-full bg-current opacity-60 animate-pulse [animation-delay:150ms]" />
@@ -169,7 +170,7 @@ export function ChatbotButton() {
               <Input
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder="Escribe tu pregunta..."
+                placeholder={t('inputPlaceholder')}
                 onKeyDown={(e) => {
                   if (e.key === 'Enter') {
                     void sendMessage(input);
@@ -182,7 +183,7 @@ export function ChatbotButton() {
                 onClick={() => void sendMessage(input)}
                 disabled={isSending || !input.trim()}
                 className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700"
-                title="Enviar"
+                title={t('send')}
               >
                 {isSending ? (
                   <Loader2 className="h-4 w-4 animate-spin" />

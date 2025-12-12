@@ -1,15 +1,17 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter } from '@/i18n/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { X, Sparkles, ArrowRight } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 export function WelcomeBanner() {
   const [isVisible, setIsVisible] = useState(false);
   const router = useRouter();
+  const t = useTranslations('welcomeBanner');
 
   useEffect(() => {
     // Check if user has seen the welcome banner
@@ -59,11 +61,10 @@ export function WelcomeBanner() {
                 
                 <div className="flex-1">
                   <h3 className="text-lg sm:text-xl font-bold mb-2">
-                    ¡Bienvenido a la Plataforma Grabovoi!
+                    {t('title')}
                   </h3>
                   <p className="text-sm sm:text-base text-white/90 mb-4">
-                    Descubre 162 secuencias numéricas, 20 libros, webinars y herramientas prácticas. 
-                    ¿Te gustaría hacer un tour rápido?
+                    {t('description')}
                   </p>
                   
                   <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
@@ -72,7 +73,7 @@ export function WelcomeBanner() {
                       size="sm"
                       className="w-full bg-white text-purple-600 hover:bg-white/90 sm:w-auto"
                     >
-                      Hacer el tour
+                      {t('startTour')}
                       <ArrowRight className="h-4 w-4 ml-2" />
                     </Button>
                     <Button
@@ -81,7 +82,7 @@ export function WelcomeBanner() {
                       variant="ghost"
                       className="w-full text-white hover:bg-white/20 sm:w-auto"
                     >
-                      No mostrar de nuevo
+                      {t('dismiss')}
                     </Button>
                   </div>
                 </div>

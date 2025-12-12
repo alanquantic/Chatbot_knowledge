@@ -1,0 +1,925 @@
+{
+  "metadata": {
+    "title": "Grigori Grabovoi Database - Teachings & Numeric Sequences",
+    "description": "Complete interactive web app with Grigori Grabovoi’s database: biography, books, numeric sequences, practical guide, and webinars."
+  },
+  "navbar": {
+    "home": "Home",
+    "books": "Books",
+    "sequences": "Sequences",
+    "practicalGuide": "Practical Guide",
+    "prk1u": "PRK-1U",
+    "webinars": "Webinars",
+    "designs": "Designs",
+    "journal": "Journal",
+    "favorites": "Favorites",
+    "logout": "Sign out",
+    "login": "Sign in",
+    "openMenuAria": "Open menu",
+    "language": "Language",
+    "spanish": "Spanish",
+    "english": "English"
+  },
+  "footer": {
+    "aboutTitle": "About Grigori Grabovoi",
+    "aboutText": "Mathematician, academic, and author known for his teachings on numeric sequences, concentration methods, and harmonious development.",
+    "navigationTitle": "Navigation",
+    "resourcesTitle": "Resources",
+    "home": "Home",
+    "library": "Book Library",
+    "numericSequences": "Numeric Sequences",
+    "practicalGuide": "Practical Guide",
+    "webinars": "Webinars & Videos",
+    "myFavorites": "My Favorites",
+    "createdBy": "Created by",
+    "forSharing": "to share Grigori Grabovoi’s teachings",
+    "copyright": "© {year} Grigori Grabovoi Database"
+  },
+  "welcomeBanner": {
+    "title": "Welcome to the Grabovoi Platform!",
+    "description": "Explore 162 numeric sequences, 20 books, webinars, and practical tools. Would you like a quick tour?",
+    "startTour": "Start the tour",
+    "dismiss": "Don’t show again"
+  },
+  "home": {
+    "hero": {
+      "badge": "Complete Database",
+      "subtitle": "Explore teachings on numeric sequences, concentration methods, and harmonious development ✨",
+      "primaryCta": "Explore Sequences",
+      "secondaryCta": "Practical Guide"
+    },
+    "about": {
+      "title": "About Grigori Grabovoi",
+      "p1": " (born on November 14, 1963) is a mathematician, academic, and Russian-Kazakh author known worldwide for his teachings on numeric sequences for healing, concentration methods, and harmonious development.",
+      "p2": "He has devoted his life to developing technologies for salvation and eternal development. His doctrine focuses on “General Salvation and Harmonious Development”, emphasizing that each person can shape their destiny through conscious control of life events.",
+      "stats": {
+        "books": "Published Books",
+        "sequences": "Numeric Sequences",
+        "categories": "Application Categories"
+      }
+    },
+    "featuresSection": {
+      "title": "Explore the Database",
+      "subtitle": "Full access to books, sequences, practical guides, and webinars"
+    },
+    "features": {
+      "books": {
+        "title": "20 Foundational Works",
+        "description": "Full access to the book library with detailed information on each work."
+      },
+      "sequences": {
+        "title": "162 Numeric Sequences",
+        "description": "Catalog organized into 8 categories: health, abundance, love, and more."
+      },
+      "guide": {
+        "title": "Complete Practical Guide",
+        "description": "Methods, step-by-step exercises, and recommendations to apply the teachings."
+      },
+      "webinars": {
+        "title": "10 Analyzed Webinars",
+        "description": "Webinar content with key teachings and practical exercises."
+      }
+    },
+    "topSequences": {
+      "title": "Top 5 Essential Sequences",
+      "subtitle": "The most powerful sequences to transform your life ✨",
+      "viewAll": "View All Sequences",
+      "s1": { "category": "Manifestation", "purpose": "Immediate solution" },
+      "s2": { "category": "Health", "purpose": "Overall perfect health" },
+      "s3": { "category": "Abundance", "purpose": "Infinite prosperity" },
+      "s4": { "category": "Beauty", "purpose": "Rejuvenation" },
+      "s5": { "category": "Love", "purpose": "Unconditional love" }
+    },
+    "cta": {
+      "title": "Start Your Transformation Journey ✨",
+      "subtitle": "Sign in to save your favorite sequences and books, and access a personalized experience for your spiritual development.",
+      "login": "Sign in",
+      "signup": "Create account"
+    }
+  }
+  ,
+  "auth": {
+    "login": {
+      "title": "Sign in",
+      "subtitle": "Access your account to save your favorites",
+      "email": { "label": "Email", "placeholder": "you@email.com" },
+      "password": { "label": "Password" },
+      "submit": { "label": "Sign in", "loading": "Signing in..." },
+      "noAccount": "Don’t have an account?",
+      "signupLink": "Sign up here",
+      "backHome": "← Back to home",
+      "errors": {
+        "invalidCredentials": "Incorrect email or password",
+        "generic": "Error signing in"
+      }
+    },
+    "signup": {
+      "title": "Create account",
+      "subtitle": "Sign up to save your favorite sequences and books",
+      "name": { "label": "Name (optional)", "placeholder": "Your name" },
+      "email": { "label": "Email", "placeholder": "you@email.com" },
+      "password": { "label": "Password", "placeholder": "Minimum 6 characters" },
+      "confirmPassword": { "label": "Confirm password" },
+      "submit": { "label": "Create account", "loading": "Creating account..." },
+      "hasAccount": "Already have an account?",
+      "loginLink": "Sign in here",
+      "backHome": "← Back to home",
+      "errors": {
+        "passwordMismatch": "Passwords do not match",
+        "passwordTooShort": "Password must be at least 6 characters",
+        "createAccount": "Error creating account",
+        "createdButLoginFailed": "Account created, but sign-in failed"
+      }
+    }
+  }
+  ,
+  "welcomeTour": {
+    "skip": "Skip tour",
+    "steps": {
+      "welcome": {
+        "title": "Welcome to the Grabovoi Platform!",
+        "description": "Your complete portal for Grigori Grabovoi's teachings. Here you'll find numeric sequences, books, webinars, and practical tools.",
+        "features": {
+          "f1": "162 organized numeric sequences",
+          "f2": "20 digitized and analyzed books",
+          "f3": "10 educational webinars",
+          "f4": "Integrated PRK-1U device"
+        }
+      },
+      "sequences": {
+        "title": "Numeric Sequences",
+        "description": "Access 162 sequences organized into 8 categories: health, abundance, love, spiritual development, and more.",
+        "features": {
+          "f1": "Advanced search and filters",
+          "f2": "Personalized favorites",
+          "f3": "3D sphere visualization",
+          "f4": "Detailed source information"
+        }
+      },
+      "library": {
+        "title": "Digital Library",
+        "description": "Explore 20 Grigori Grabovoi books with deep analysis, chapter structures, and connections between works.",
+        "features": {
+          "f1": "Fully digitized books",
+          "f2": "AI-assisted content analysis",
+          "f3": "Connections between books",
+          "f4": "Extracted practical exercises"
+        }
+      },
+      "prk1u": {
+        "title": "PRK-1U Device",
+        "description": "Learn about Grabovoi's official device with protocols, exercises, and direct access to the practice platform.",
+        "features": {
+          "f1": "Complete usage guide",
+          "f2": "Concentration protocols",
+          "f3": "Access to the official platform",
+          "f4": "Structured exercises"
+        }
+      },
+      "personal": {
+        "title": "Personal Tools",
+        "description": "Save your favorites, keep a manifestation journal, and access visual designs for your practices.",
+        "features": {
+          "f1": "Favorites system",
+          "f2": "Journal with AI analysis",
+          "f3": "Custom designs",
+          "f4": "Progress tracking"
+        }
+      },
+      "start": {
+        "title": "Start Your Journey!",
+        "description": "Everything is ready. Explore the platform and begin working with Grabovoi's teachings."
+      }
+    },
+    "cta": {
+      "quickGuide": "Quick guide",
+      "viewSequences": "View sequences"
+    },
+    "nav": {
+      "prev": "Previous",
+      "next": "Next",
+      "finish": "Start",
+      "goToStep": "Go to step {step}"
+    }
+  },
+  "favorites": {
+    "title": "My Favorites",
+    "subtitle": "Your personal collection of saved books and sequences",
+    "loading": "Loading favorites...",
+    "empty": {
+      "title": "You don't have any favorites yet",
+      "description": "Explore the library or sequences and save your favorites for easy access.",
+      "exploreBooks": "Explore Books",
+      "exploreSequences": "View Sequences"
+    },
+    "sections": {
+      "books": "Favorite Books ({count})",
+      "sequences": "Favorite Sequences ({count})"
+    },
+    "book": {
+      "year": "Year: {year}",
+      "viewDetails": "View Details"
+    }
+  },
+  "books": {
+    "title": "Book Library",
+    "subtitle": "Explore the 20 foundational works of Grigori Grabovoi with detailed information",
+    "searchPlaceholder": "Search by title...",
+    "allCategories": "All",
+    "loading": "Loading books...",
+    "empty": "No books found",
+    "viewDetails": "View Details",
+    "stats": "Showing {shown} of {total} books"
+  },
+  "bookDetail": {
+    "loading": "Loading book...",
+    "notFound": "Book not found",
+    "backToLibrary": "Back to library",
+    "summary": "Summary",
+    "keyConcepts": "Key Concepts",
+    "featuredSequences": "Featured Sequences",
+    "practicalApplication": "Practical Application",
+    "availableLanguages": "Available Languages",
+    "pages": "{count} pages"
+  },
+  "sequences": {
+    "title": "Numeric Sequences",
+    "subtitle": "Complete catalog of 187 sequences organized into 8 categories",
+    "searchPlaceholder": "Search by purpose or number...",
+    "searchButton": "Search",
+    "clearSearch": "Clear",
+    "allCategories": "All",
+    "loading": "Loading sequences...",
+    "empty": "No sequences found",
+    "showingResults": "Showing {shown} of {total} sequences",
+    "totalSequences": "Total: {total} sequences",
+    "source": "Source",
+    "topSequences": {
+      "title": "Top 5 Essential Sequences",
+      "subtitle": "The most important sequences to start with",
+      "s1": { "purpose": "Immediate solution" },
+      "s2": { "purpose": "Overall perfect health" },
+      "s3": { "purpose": "Infinite prosperity" },
+      "s4": { "purpose": "General rejuvenation" },
+      "s5": { "purpose": "Unconditional love" }
+    },
+    "categories": {
+      "salud_fisica": "Physical Health",
+      "salud_mental_emocional": "Mental & Emotional Health",
+      "abundancia_prosperidad": "Abundance & Prosperity",
+      "relaciones_amor": "Relationships & Love",
+      "desarrollo_espiritual": "Spiritual Development",
+      "manifestacion_general": "General Manifestation",
+      "rejuvenecimiento_belleza": "Rejuvenation & Beauty",
+      "proteccion_armonizacion": "Protection & Harmonization"
+    },
+    "tooltips": {
+      "s1": "Use it when you need to solve any urgent situation",
+      "s2": "For maintenance and optimization of your overall health",
+      "s3": "Attract economic and material abundance to your life",
+      "s4": "Restore and maintain your youth and vitality",
+      "s5": "Develop and strengthen relationships based on pure love"
+    }
+  },
+  "guide": {
+    "title": "Practical Guide",
+    "subtitle": "Methods, exercises, and recommendations to apply Grigori Grabovoi's teachings",
+    "loading": "Loading guide...",
+    "fundamentalConcepts": "Fundamental Concepts",
+    "howToPronounce": "How to Pronounce the Sequences",
+    "correct": "CORRECT",
+    "incorrect": "INCORRECT",
+    "applicationMethods": "Application Methods",
+    "applicationMethodsSubtitle": "Different ways to work with the sequences",
+    "activeMethods": "Active Methods",
+    "passiveMethods": "Passive Methods",
+    "basicExercises": "Basic Exercises to Start",
+    "basicExercisesSubtitle": "5 essential step-by-step exercises",
+    "exercise": "Exercise",
+    "sequence": "Sequence",
+    "duration": "Duration",
+    "recommendedTime": "Time",
+    "steps": "Steps",
+    "tip": "Tip",
+    "optimalMentalState": "Optimal Mental State: Joy, Light, and Love",
+    "importantRecommendations": "Important Recommendations",
+    "levels": {
+      "allLevels": "All levels",
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced",
+      "allLevelsDesc": "✨ ALL LEVELS\n\nThis method is suitable for:\n\n• Beginners who are starting\n• Intermediate practitioners\n• Advanced users\n\nNo prior experience required and can be used by anyone, regardless of their familiarity with Grabovoi's teachings.",
+      "beginnerDesc": "🌱 BEGINNER LEVEL\n\nThis method is ideal for:\n\n• People who are starting\n• No prior experience needed\n• Simple and straightforward exercises\n• Short practice time (5-10 minutes)\n\nRecommended as the first method to familiarize yourself with the techniques.",
+      "intermediateDesc": "⭐ INTERMEDIATE LEVEL\n\nThis method requires:\n\n• Basic experience with the sequences\n• Greater mental concentration\n• Medium practice time (10-20 minutes)\n• Understanding of fundamental concepts\n\nRecommended after mastering the basic methods.",
+      "advancedDesc": "🚀 ADVANCED LEVEL\n\nThis method requires:\n\n• Considerable experience with the practices\n• High concentration capacity\n• Extended practice time (20+ minutes)\n• Mastery of multiple techniques\n\nRecommended only for experienced practitioners."
+    }
+  },
+  "webinars": {
+    "title": "Webinars & Videos",
+    "subtitle": "Collection of 10 YouTube webinars with key teachings and practical exercises",
+    "loading": "Loading webinars...",
+    "watchOnYoutube": "Watch on YouTube",
+    "mainTopics": "Main Topics",
+    "keyTeachings": "Key Teachings",
+    "practicalExercises": "Practical Exercises",
+    "total": "Total: {count} webinars available"
+  },
+  "designs": {
+    "title": "🎨 Unique Designs Gallery",
+    "subtitle": "Explore all visual effects and custom styles available to make your app unique",
+    "whatIsThis": "ℹ️ What is this page?",
+    "referenceGallery": "Reference Gallery:",
+    "referenceGalleryDesc": "This is a visual gallery showing all the custom styles, effects, and animations that are already integrated in the application.",
+    "activeStyles": "Active Styles:",
+    "activeStylesDesc": "All these effects are already working in different sections of the app (sequences, books, journal, etc.).",
+    "interactiveDemos": "Interactive Demos:",
+    "interactiveDemosDesc": "Click the buttons to see demonstrations of how the effects work. The buttons have sample messages.",
+    "forDevelopers": "For Developers:",
+    "forDevelopersDesc": "If you're a developer, you can copy the CSS classes shown (e.g.: bg-gradient-cosmic) to use these styles in new components.",
+    "howToUse": "How to Use This Gallery:",
+    "howToUseSteps": {
+      "s1": "Explore each section to see the different visual effects available",
+      "s2": "Observe how gradients, animations, glass effects, etc. look",
+      "s3": "Click the interactive buttons to see the demos in action",
+      "s4": "Read the example codes (in gray) below each effect",
+      "s5": "Remember: These styles are already applied throughout the app, just enjoy them! 🎨"
+    },
+    "tryDemo": "Try Demo",
+    "tryDemoAlert": "👋 This is an interactive demo.\n\nThis gallery shows all the visual styles that are already active in the app.\n\nYou can click any button to see how the effects work.\n\nExplore each section! 🎨",
+    "viewCodeExamples": "View Code Examples",
+    "sections": {
+      "cosmicGradients": "1. Cosmic Gradients",
+      "glassmorphism": "2. Glassmorphism (Frosted Glass)",
+      "glowEffects": "3. Glow Effects",
+      "animations": "4. Custom Animations",
+      "gradientTexts": "5. Gradient Texts",
+      "interactiveCards": "6. Interactive Cards with Hover",
+      "specialButtons": "7. Buttons with Special Effects",
+      "customBadges": "8. Custom Badges",
+      "colorPalette": "9. Custom Color Palette"
+    },
+    "gradients": {
+      "cosmic": "Cosmic",
+      "aurora": "Aurora",
+      "spiritual": "Spiritual",
+      "divine": "Divine",
+      "mystical": "Mystical",
+      "mesh": "Mesh Gradient",
+      "codeHint": "Use:"
+    },
+    "glassmorphism": {
+      "card1Title": "Glass Card 1",
+      "card1Desc": "Frosted glass effect with transparency",
+      "card1Content": "This design uses backdrop-filter: blur() to create a modern and elegant glass effect.",
+      "card2Title": "Glass Card 2",
+      "card2Desc": "Perfect for overlays and modals",
+      "glassButton": "Glass Button",
+      "glassButtonAlert": "Glassmorphism Effect! 🪟"
+    },
+    "glow": {
+      "cosmic": "Cosmic Glow",
+      "cosmicDesc": "Mystic violet glow effect",
+      "aurora": "Aurora Glow",
+      "auroraDesc": "Celestial cyan glow effect",
+      "divine": "Divine Glow",
+      "divineDesc": "Radiant magenta glow effect"
+    },
+    "animations": {
+      "fadeInUp": "Fade In Up",
+      "fadeInDown": "Fade In Down",
+      "scaleIn": "Scale In",
+      "floating": "Floating"
+    },
+    "gradientTexts": {
+      "basic": "Basic Gradient Text",
+      "cosmic": "Cosmic Text",
+      "aurora": "Aurora Text"
+    },
+    "interactiveCards": {
+      "hoverLift": "Hover Lift",
+      "hoverLiftDesc": "Elevates on mouse hover",
+      "hoverLiftHint": "Hover over to see the effect",
+      "hoverScale": "Hover Scale",
+      "hoverScaleDesc": "Increases in size",
+      "cardInteractive": "Card Interactive",
+      "cardInteractiveDesc": "Combination of effects"
+    },
+    "buttons": {
+      "clickToSeeDemo": "👆 <strong>Click each button</strong> to see an interactive demo of the effect",
+      "cosmicBtn": "🌌 Cosmic Button",
+      "cosmicAlert": "🌌 COSMIC GRADIENT\n\nThis button uses:\nclassName=\"bg-gradient-cosmic\"\n\nPerfect for important actions with a space theme.",
+      "auroraBtn": "🌈 Aurora Button",
+      "auroraAlert": "🌈 AURORA GRADIENT\n\nThis button uses:\nclassName=\"bg-gradient-aurora\"\n\nIdeal for positive and transformative actions.",
+      "divineBtn": "🌟 Divine Button",
+      "divineAlert": "🌟 DIVINE GRADIENT\n\nThis button uses:\nclassName=\"bg-gradient-divine\"\n\nPerfect for spiritual or high-importance actions.",
+      "animatedBtn": "🎨 Animated Button",
+      "animatedAlert": "🎨 ANIMATED BORDER\n\nThis button uses:\nclassName=\"animate-border\"\n\nWatch how the border moves! Ideal for drawing attention.",
+      "shimmerBtn": "⚡ Hover Shimmer",
+      "shimmerAlert": "⚡ SHIMMER EFFECT\n\nThis button includes a shimmer effect layer.\n\nHover over it to see the shine move. Very elegant!",
+      "sequencesBtn": "💜 Sequences Style",
+      "sequencesAlert": "💜 PURPLE-PINK GRADIENT\n\nThis button uses:\nclassName=\"bg-gradient-to-r from-purple-600 to-pink-600\"\n\nThis is the same style as the search button in /sequences",
+      "tip": "<strong>Tip:</strong> These buttons are already in use in different parts of the app. For example, the \"Search\" button in the Sequences section uses the purple-pink gradient."
+    },
+    "badges": {
+      "cosmic": "Cosmic",
+      "aurora": "Aurora",
+      "divine": "Divine",
+      "gradient": "Gradient",
+      "glass": "Glass",
+      "glow": "With Glow",
+      "pulsing": "Pulsing"
+    },
+    "quickGuide": "📚 Quick Usage Guide",
+    "quickGuideSubtitle": "How to apply these effects to your components",
+    "quickGuideSteps": {
+      "backgrounds": "1. Background Gradients:",
+      "glass": "2. Glass Effects:",
+      "glow": "3. Glow Effects:",
+      "animations": "4. Animations:",
+      "textGradient": "5. Gradient Text:",
+      "hover": "6. Hover Effects:"
+    },
+    "colorPalette": {
+      "cosmic": "Cosmic Colors (cosmic-)",
+      "aurora": "Aurora Colors (aurora-)",
+      "divine": "Divine Colors (divine-)"
+    },
+    "makeAppUnique": "✨ Make Your App Unique!",
+    "makeAppUniqueSubtitle": "Combine these effects to create memorable visual experiences",
+    "allEffectsAvailable": "All these effects are available in your Tailwind CSS configuration",
+    "viewConfig": "View Configuration",
+    "viewConfigAlert": "Tailwind CSS configuration for custom designs",
+    "documentation": "Documentation",
+    "documentationAlert": "Check tailwind.config.ts and globals.css for complete documentation"
+  },
+  "prk1u": {
+    "title": "PRK-1U Device",
+    "subtitle": "Revolutionary Technology for Concentration Development",
+    "whatIs": "What is the PRK-1U?",
+    "whatIsDesc": "The <strong>PRK-1U</strong> is a revolutionary technological device developed by Dr. Grigori Grabovoi, based on his registered scientific patents. It is a unique tool in the world designed to <strong class=\"text-purple-600 dark:text-purple-400\">amplify the user's mental concentrations</strong>.",
+    "practiceNow": "Practice Now on Our Online Platform!",
+    "practiceNowDesc": "Access our interactive PRK-1U simulator and start performing the 4 fundamental exercises with real-time guidance.",
+    "interactiveInterface": "Interactive Interface",
+    "guidedExercises": "Guided Exercises",
+    "free": "Free",
+    "accessPlatform": "Access Platform",
+    "tabs": {
+      "operation": "How It Works",
+      "versions": "Versions",
+      "methods": "Methods",
+      "instructions": "Instructions",
+      "protocols": "Protocols",
+      "acquisition": "Acquisition",
+      "practice": "Online Practice"
+    },
+    "emotionalState": "Optimal Emotional State",
+    "emotionalWords": "Joy • Light • Love",
+    "emotionalDesc": "This emotional state produces <strong>the strongest light for manifestation</strong>. Cultivate these feelings during your concentrations to exponentially amplify the effectiveness of the PRK-1U.",
+    "features": {
+      "eventControl": "Event Control",
+      "eventControlDesc": "Facilitates conscious control of events and goal manifestation",
+      "healthRestoration": "Health Restoration",
+      "healthRestorationDesc": "Normalization of body functions and cellular regeneration",
+      "clairvoyance": "Clairvoyance Development",
+      "clairvoyanceDesc": "Expansion of consciousness and perceptive abilities",
+      "eternalLife": "Eternal Life",
+      "eternalLifeDesc": "Ultimate goal: harmonious development and eternal life"
+    },
+    "quickAccess": {
+      "rejuvenation": "Rejuvenation",
+      "eventControl": "Event Control",
+      "clairvoyance": "Clairvoyance",
+      "forecast": "Forecast"
+    },
+    "operation": {
+      "title": "How the PRK-1U Works",
+      "subtitle": "Scientific basis and operating principles",
+      "fundamental": "Fundamental Principle",
+      "fundamentalDesc": "The device operates on the principle that <strong>human thought emits a weak light signal (biosignal)</strong> that can exist in two quantum states simultaneously.",
+      "process": "Technological Process",
+      "steps": {
+        "capture": "Capture",
+        "captureDesc": "When you focus your thought on the PRK-1U, the thought radiation (which includes your objective) is directed to the device's lenses",
+        "amplification": "Amplification",
+        "amplificationDesc": "The device processes these signals through optical light transmissions",
+        "potentiation": "Potentiation",
+        "potentiationDesc": "Adds electromagnetic fields through microelectronic components",
+        "return": "Return",
+        "returnDesc": "The amplified biosignal is returned to the user, intensifying the impact on events"
+      },
+      "components": "Main Components",
+      "componentsList": {
+        "optical": { "name": "Three-Lens Optical System", "desc": "At the top, of different diameters" },
+        "internal": { "name": "Internal Optical Unit", "desc": "For concentrations on past events" },
+        "microelectronic": { "name": "Microelectronic Components", "desc": "Generate electromagnetic fields" },
+        "plates": { "name": "Metal Plates with Numbers", "desc": "For working with numeric sequences (0-9)" },
+        "ai": { "name": "Mechanical Artificial Intelligence", "desc": "Adapts the device according to load" },
+        "eternity": { "name": "Matter of Eternity", "desc": "Positive influence on individual and environment" }
+      },
+      "range": "Range of Action",
+      "rangeItems": {
+        "physical": "<strong>Physical device</strong>: 25 meters around its location",
+        "sleep": "Continues interacting with your biosignal <strong>even when you sleep</strong>",
+        "always": "Works 24/7 when turned on"
+      }
+    },
+    "versions": {
+      "physical": {
+        "title": "Physical PRK-1U",
+        "subtitle": "Original version of the device",
+        "features": "Features:",
+        "list": {
+          "lenses": "Three upper optical lenses",
+          "numbers": "Numbers 0-9 on metal plates",
+          "unlimited": "Continuous operation without limits",
+          "people": "Configuration for up to 8 people",
+          "radius": "25-meter radius",
+          "passive": "<strong>24/7 passive normalization</strong>"
+        },
+        "license": "4-year sublicense",
+        "price": "€11,050",
+        "priceNote": "(approx. VAT included)"
+      },
+      "online": {
+        "title": "PRK-1U Online",
+        "subtitle": "Remote access via IVIDEON",
+        "features": "Features:",
+        "list": {
+          "access": "24/7 access from anywhere",
+          "realtime": "Real-time visualization",
+          "config": "Personalized configuration",
+          "medical": "<strong>Free medical devices</strong>",
+          "trial": "Free 2-day trial",
+          "noInvestment": "No initial investment required"
+        },
+        "badge": "Free Trial",
+        "price": "Variable",
+        "priceNote": "Free medical devices available"
+      },
+      "advanced": {
+        "title": "Advanced PRK-1UM",
+        "subtitle": "New Generation",
+        "power": "⚡ 700x More Powerful ⚡",
+        "features": "Features:",
+        "list": {
+          "laser": "Dual smart laser",
+          "oled": "Digital OLED screen",
+          "ai": "Enhanced AI",
+          "portable": "Portable (20×16×6.5 cm)",
+          "battery": "Internal battery",
+          "updatable": "Software upgradable"
+        },
+        "license": "4-year sublicense",
+        "price": "€10,050",
+        "priceNote": "(approx. VAT included)"
+      }
+    },
+    "methods": {
+      "title": "Concentration Methods with PRK-1U",
+      "subtitle": "Four main methods for working with the device",
+      "direction": "Direction",
+      "stepsLabel": "Steps:",
+      "durationLabel": "Duration:",
+      "method1": {
+        "name": "Method 1: Present and Future",
+        "use": "For current events or those you want to materialize in the future",
+        "direction": "COUNTERCLOCKWISE movement ↺ (smaller to larger diameter)",
+        "steps": ["Clearly define and visualize the objective", "Concentrate on the smaller lens", "Mentally insert the objective into the lens", "Counterclockwise movement through all lenses", "Repeat 3-12 cycles", "Observe sensations and document"],
+        "duration": "Minimum 8 min, ideal 20 min, optimal 1 hour+"
+      },
+      "method2": {
+        "name": "Method 2: Past Events",
+        "use": "To normalize, heal, or transform past events",
+        "direction": "CLOCKWISE movement ↻ (smaller to larger diameter)",
+        "steps": ["Identify past event to normalize", "Visualize the transformed and harmonious version", "Tune in with internal optical unit", "Clockwise movement through the lenses", "Feel the normalization of the event", "Give thanks for the transformation"],
+        "duration": "20-30 minutes for significant events"
+      },
+      "method3": {
+        "name": "Method 3: Numeric Sequences",
+        "use": "Combine Grabovoi sequences with PRK-1U lenses",
+        "direction": "Concentration on digit + adjacent lens",
+        "steps": ["Select appropriate sequence", "Visualize first digit (silver, 3D, in motion)", "Locate digit on metal plates", "Double concentration (digit + adjacent lens)", "Mentally insert digit into lens", "Repeat complete sequence 3-7 times"],
+        "duration": "Variable depending on sequence",
+        "extra": "💡 Enhancement: Adding current date (DDMMYYYY) intensifies the effect"
+      },
+      "method4": {
+        "name": "Method 4: Pure Objective",
+        "use": "Direct method without numeric sequences",
+        "direction": "COUNTERCLOCKWISE movement with visualized objective",
+        "steps": ["Clearly define and write down objective", "Detailed visualization (images, emotions)", "Concentrate on smaller lens", "Insert complete visualization into lens", "Move to the left (counterclockwise)", "Maintain constant visualization", "End with gratitude"],
+        "duration": "Flexible",
+        "extra": "✅ Ideal for beginners"
+      }
+    },
+    "instructions": {
+      "guideTitle": "PRK-1U Practical Usage Guide",
+      "guideSubtitle": "Step-by-step instructions to connect with the device and perform the 4 fundamental exercises",
+      "step1": {
+        "title": "Step 1: How to Connect with the Device",
+        "subtitle": "Establish conscious connection with the PRK-1U",
+        "circular": "Circular Movement",
+        "circularDesc": "Make a circular movement with your gaze, concentrating from the smaller diameter lens <strong>counterclockwise</strong> toward the larger lens.",
+        "contact": "Establish Contact",
+        "contactDesc": "Direct your gaze to the small lens and say:",
+        "phrase": "\"I am developing the concentrations of eternal life\"",
+        "contactNote": "Then move to the second lens and the third, repeating the phrase and moving your gaze in a circle above the lenses.",
+        "confirmation": "Connection Confirmation",
+        "confirmationDesc": "Continue until you <strong>feel</strong> you have connected with the device and, through it, with the structure of Eternity. This sensation is unique to each person."
+      },
+      "step2": {
+        "title": "Step 2: How to Work with Your Objectives",
+        "subtitle": "Mental Sphere Technique for manifestation",
+        "createSphere": "1. Create the Sphere",
+        "createSphereDesc": "Mentally generate a <strong>sphere of light</strong> in front of you. This will be the container for your objective.",
+        "placeObjective": "2. Place the Objective",
+        "placeObjectiveDesc": "Place inside the sphere your objective, represented as:",
+        "placeObjectiveList": ["A <strong>visual image</strong> (static or dynamic)", "Or simply the <strong>information</strong> formulated briefly and concisely"],
+        "positiveViz": "3. Positive Visualization ⚠️ IMPORTANT",
+        "positiveVizDesc": "Always imagine the objective <span class=\"underline\">ALREADY ACHIEVED</span>",
+        "positiveVizDont": "❌ DO NOT visualize the current negative situation",
+        "positiveVizDo": "✅ DO visualize the ideal future reality you want to create",
+        "concentration": "4. Concentration",
+        "concentrationDesc": "Place the sphere inside the <strong>small lens</strong> of the device. Concentrate on the objective as an already achieved reality, maintaining attention.",
+        "conviction": "5. Conviction",
+        "convictionDesc": "Maintain the conviction that with this action <strong>that reality is already being created</strong>, and will only need reinforcement with successive concentrations."
+      },
+      "exercises": {
+        "title": "The 4 Fundamental Exercises",
+        "subtitle": "Official protocol by Grigori Grabovoi for integral development",
+        "rejuvenation": {
+          "title": "Exercise 1: Rejuvenation",
+          "preparation": "📸 Preparation:",
+          "preparationDesc": "Bring a photo of yourself from your youth, from a moment when you were <strong>happy</strong> and well both physically and emotionally. Not just a \"nice\" photo, but one that captures a <strong>state of fullness</strong>.",
+          "objective": "🎯 Objective:",
+          "objectiveDesc": "Return to that age - not necessarily in external appearance, but rather to the <strong>state of youth</strong> in general.",
+          "stepsLabel": "📋 Steps:",
+          "steps": ["Observe your youth photo", "Generate the mental sphere in front of you", "Place inside the image of your full youth", "Position the sphere in the small lens", "Concentrate on the image and thought of rejuvenation", "Perform the turns with your gaze above the lenses", "Maintain concentration until you feel it's enough"],
+          "durationNote": "<strong>⏱️ Duration:</strong> Duration is never predetermined. With practice, your internal sensations will indicate when to finish."
+        },
+        "eventControl": {
+          "title": "Exercise 2: Event Control",
+          "preparation": "🎯 Preparation:",
+          "preparationDesc": "Clearly define your objective: healing, job change, relationship improvement, etc.",
+          "objective": "🎯 Objective:",
+          "objectiveDesc": "Manifest or bring closer the desired event by working from within.",
+          "stepsLabel": "📋 Steps:",
+          "steps": ["Define your objective clearly", "Generate the mental sphere in front of you", "Place your objective inside (image or information)", "Make sure to visualize the POSITIVE result already achieved", "Position the sphere in the small lens", "Perform the turns with your gaze", "Maintain concentration with conviction", "If you lose concentration, rest and resume"],
+          "exampleTitle": "💡 Practical Example:",
+          "exampleDesc": "To heal a liver problem: <strong>DO NOT</strong> visualize the sick liver, but rather a <strong>perfect liver functioning well</strong>. You can include dynamic images like yourself eating foods you currently can't tolerate."
+        },
+        "clairvoyance": {
+          "title": "Exercise 3: Control Clairvoyance",
+          "preparation": "👁️ Preparation:",
+          "preparationDesc": "Choose a place where you have been recently: a store, theater, friend's house, etc.",
+          "objective": "🎯 Objective:",
+          "objectiveDesc": "Develop your capacity for <strong>spiritual vision</strong> by seeing what is not in front of your physical eyes.",
+          "stepsLabel": "📋 Steps:",
+          "steps": ["Recall the COMPLETE image of the chosen place", "Visualize down to the smallest detail", "Generate the mental sphere", "Place inside your objective: \"Development of my clairvoyance\"", "Position the sphere in the small lens", "While visualizing the place, perform the turns with your gaze", "Maintain the practice until you feel connection"],
+          "note": "<strong>💎 Note:</strong> This is an exercise of spiritual vision. It's not about <strong>remembering</strong>, but about <strong>SEEING</strong> with the inner eyes."
+        },
+        "forecast": {
+          "title": "Exercise 4: Control Forecast",
+          "preparation": "🔮 Preparation:",
+          "preparationDesc": "Prepare to expand your consciousness toward the distant future.",
+          "objective": "🎯 Objective:",
+          "objectiveDesc": "Develop control forecast capacity by visualizing your life in <strong>eternity</strong>.",
+          "stepsLabel": "📋 Steps:",
+          "steps": ["Imagine yourself <strong>a thousand years</strong> from now (or a million)", "Visualize what your life is like at that time", "Define: What do you do?", "What family and work do you have?", "What is your environment like?", "What objectives do you have in eternal life?", "Generate the sphere with your objective: \"Development of control forecast\"", "While visualizing, perform the turns with your gaze", "Maintain concentration on your eternal future"],
+          "note": "<strong>✨ Note:</strong> This exercise <strong>expands your temporal consciousness</strong> and connects you with your eternal nature."
+        }
+      },
+      "recommendations": {
+        "title": "Important Recommendations",
+        "subtitle": "Essential tips for effective practice",
+        "visual": { "title": "Visual Connection", "desc": "The connection between the device and your consciousness happens through the <strong>GAZE</strong>. You cannot work with your eyes closed." },
+        "rest": { "title": "Visual Rest", "desc": "Train your eyes so they don't tire quickly. If they get tired, you can look through the device without fixing your gaze, or rest completely." },
+        "noTension": { "title": "No Tension", "desc": "Work <strong>without body or eye tension</strong>. If fatigue is noticeable, stand up, move around, and then resume work." },
+        "creativity": { "title": "Creativity", "desc": "Use all your creativity when formulating your objectives. <strong>Dynamic images</strong> are more powerful than static ones." },
+        "positivity": { "title": "Positivity", "desc": "Don't start from the \"problem\" you have, but from the <strong>ideal future reality</strong> you want to create with the light of your thought." },
+        "regular": { "title": "Regular Practice", "desc": "Reinforce your objectives with <strong>successive concentrations</strong>. Consistency is key to manifestation." }
+      },
+      "protocol": {
+        "title": "Official Test Protocol (48 hours)",
+        "subtitle": "Protocol designed by Grigori Grabovoi to systematically measure the development of your capabilities",
+        "intro": "This is the official protocol to test the PRK-1U device in a structured way over 48 hours:",
+        "controls": {
+          "c1": { "title": "Rejuvenation Control", "desc": "Development of concentrations for eternal life for rejuvenation", "what": "Perform the rejuvenation exercise before and after using the device. Note the differences in your experience." },
+          "c2": { "title": "Event Control", "desc": "Development of concentrations for eternal life to adjust different events to the norm", "what": "Work with a specific event you want to manifest. Compare your concentration capacity before and after." },
+          "c3": { "title": "Clairvoyance Control", "desc": "Development of concentrations for eternal life for directive clairvoyance development", "what": "Practice seeing remote places clearly. Note if your inner vision becomes sharper." },
+          "c4": { "title": "Forecast Control", "desc": "Development of concentrations for eternal life for directive forecast capacity development", "what": "Visualize your eternal future. Observe if the connection with your future self intensifies." }
+        },
+        "whatToDo": "What to do:",
+        "note": "<strong>📝 Note:</strong> You can keep a journal of your experience during the 48 hours, noting sensations, perceived changes, and results obtained in each of the 4 controls."
+      }
+    },
+    "protocols": {
+      "title": "Specific Protocols with PRK-1U",
+      "subtitle": "Detailed guides for different objectives",
+      "keySequences": "Key Sequences:",
+      "frequency": "Frequency:",
+      "list": {
+        "physicalHealing": { "title": "Physical Healing", "duration": "30 minutes", "frequency": "Daily for minimum 40 days" },
+        "emotionalHealing": { "title": "Emotional Healing", "duration": "30 minutes", "frequency": "Daily for 21 days" },
+        "prosperity": { "title": "Prosperity", "duration": "30 minutes", "frequency": "Daily in the morning" },
+        "spiritualDev": { "title": "Spiritual Development", "duration": "40 minutes", "frequency": "Daily, same time" },
+        "rejuvenation": { "title": "Rejuvenation", "duration": "30 minutes", "frequency": "Twice daily" },
+        "fastManifestation": { "title": "Fast Manifestation", "duration": "30 minutes", "frequency": "3 times daily" }
+      },
+      "routines": {
+        "title": "Daily Routines",
+        "morning": { "time": "Morning", "duration": "15-20 min", "focus": "Activation, health, prosperity, joy" },
+        "afternoon": { "time": "Afternoon", "duration": "10-15 min", "focus": "Maintenance, event correction" },
+        "night": { "time": "Night", "duration": "20-30 min", "focus": "Integration, regeneration, programming" }
+      }
+    },
+    "acquisition": {
+      "title": "How to Acquire the PRK-1U",
+      "subtitle": "Information about costs, requirements, and contact",
+      "moreInfo": "More information",
+      "options": {
+        "physical": {
+          "title": "Physical PRK-1U",
+          "price": "€11,050",
+          "subtitle": "4-year sublicense",
+          "features": ["Physical device", "Remote online access", "Educational resources", "Technical support", "Immersive Experience (mandatory)"]
+        },
+        "online": {
+          "title": "PRK-1U Online",
+          "price": "Variable",
+          "subtitle": "Remote access via IVIDEON",
+          "badge": "Free Trial",
+          "features": ["24/7 access from anywhere", "Free medical devices", "Free 2-day trial", "No initial investment", "Personalized configuration"]
+        },
+        "advanced": {
+          "title": "Advanced PRK-1UM",
+          "price": "€10,050",
+          "subtitle": "4-year sublicense",
+          "badge": "⚡ More Powerful",
+          "features": ["700x more powerful", "Portable and compact", "OLED screen", "Software upgradable", "Immersive Experience (mandatory)"]
+        }
+      },
+      "resources": {
+        "title": "Educational Resources",
+        "educenter": { "name": "Educenter", "desc": "Official courses and seminars" },
+        "academy": { "name": "Grigori Grabovoi Academy", "desc": "International academy" },
+        "prk1uEdu": { "name": "PRK-1U Education", "desc": "Specialized PRK-1U education" },
+        "global": { "name": "Global Grigori Grabovoi", "desc": "Global community" }
+      },
+      "warnings": {
+        "title": "Important Notes",
+        "notMedical": "The PRK-1U <strong>IS NOT a medical device</strong> and does not cure or diagnose diseases",
+        "noReplace": "<strong>DOES NOT replace professional medical care</strong>",
+        "experimental": "Experimental use for personal development and education",
+        "noGuarantee": "Results not guaranteed - experience varies by individual",
+        "commitment": "Commitment and consistent practice required"
+      }
+    },
+    "practice": {
+      "platformTitle": "Interactive Practice Platform",
+      "platformSubtitle": "Complete PRK-1U simulator with the 4 fundamental exercises",
+      "openNewTab": "Open in New Tab",
+      "iframeTitle": "PRK-1U Practice Platform"
+    }
+  },
+  "journal": {
+    "title": "Manifestation Journal",
+    "subtitle": "Record your daily practices and discover patterns with Artificial Intelligence",
+    "loading": "Loading...",
+    "stats": {
+      "totalPractices": "Total Practices",
+      "currentStreak": "Current Streak",
+      "days": "days",
+      "currentLevel": "Current Level",
+      "totalTime": "Total Time",
+      "minutes": "min"
+    },
+    "tabs": {
+      "newEntry": "New Entry",
+      "myEntries": "My Entries",
+      "statistics": "Statistics",
+      "insights": "Insights"
+    },
+    "form": {
+      "title": "Record Your Practice",
+      "subtitle": "Complete the details of your practice today",
+      "date": "Date",
+      "time": "Time",
+      "sequences": "Practiced Sequences",
+      "sequencePlaceholder": "E.g.: 741, 888412128901...",
+      "addSequence": "Add Sequence",
+      "intention": "Declared Intention *",
+      "intentionPlaceholder": "What do you want to manifest with this practice?",
+      "moodBefore": "Emotional State Before (1-10)",
+      "moodAfter": "Emotional State After (1-10)",
+      "duration": "Duration (minutes)",
+      "results": "Observed Results (optional)",
+      "resultsPlaceholder": "What results or sensations did you experience?",
+      "notes": "Additional Notes (optional)",
+      "notesPlaceholder": "Any additional observations...",
+      "submit": "Save Practice",
+      "submitting": "Saving..."
+    },
+    "entries": {
+      "title": "Practice History",
+      "count": "{count} practice recorded",
+      "countPlural": "{count} practices recorded",
+      "empty": {
+        "title": "No entries yet",
+        "subtitle": "Start by recording your first practice"
+      },
+      "moodBefore": "Mood Before",
+      "moodAfter": "Mood After",
+      "duration": "Duration",
+      "resultsLabel": "Results:",
+      "notesLabel": "Notes:",
+      "moodImprovement": "Mood improvement: +{points} points"
+    },
+    "statistics": {
+      "title": "Detailed Statistics",
+      "subtitle": "Analysis of your progress and patterns",
+      "loading": "Loading statistics...",
+      "noStats": "No statistics available",
+      "streaks": "Streaks",
+      "currentStreak": "Current streak",
+      "longestStreak": "Longest streak",
+      "progress": "Progress",
+      "level": "Level",
+      "experience": "Experience",
+      "nextLevel": "Next level",
+      "practices": "Practices",
+      "total": "Total",
+      "average": "Average",
+      "perPractice": "min/practice",
+      "time": "Time",
+      "totalMinutes": "Total",
+      "equivalent": "Equivalent to",
+      "hours": "hours",
+      "lastPractice": "Last practice"
+    },
+    "insights": {
+      "title": "Analysis with Artificial Intelligence",
+      "subtitle": "Discover patterns and receive personalized suggestions",
+      "generateButton": "Generate AI Analysis",
+      "generating": "Analyzing...",
+      "discoveredInsights": "Discovered Insights",
+      "personalizedSuggestions": "Personalized Suggestions",
+      "empty": {
+        "title": "Record practices to get insights",
+        "subtitle": "AI needs at least some entries to analyze patterns"
+      },
+      "priority": {
+        "high": "high",
+        "medium": "medium",
+        "low": "low"
+      }
+    },
+    "errors": {
+      "addSequence": "You must add at least one sequence",
+      "intentionRequired": "Intention is required",
+      "registerPractice": "Error registering practice",
+      "deletePractice": "Error deleting entry",
+      "generateAnalysis": "Error generating AI analysis"
+    },
+    "success": {
+      "practiceRegistered": "Practice registered successfully!",
+      "entryDeleted": "Entry deleted"
+    },
+    "confirm": {
+      "deleteEntry": "Are you sure you want to delete this entry?"
+    }
+  },
+  "breadcrumbs": {
+    "home": "Home",
+    "sequences": "Numeric Sequences",
+    "books": "Library",
+    "guide": "Practical Guide",
+    "webinars": "Webinars",
+    "prk1u": "PRK-1U Device",
+    "favorites": "Favorites",
+    "journal": "Personal Journal",
+    "designs": "Designs",
+    "auth": "Authentication",
+    "login": "Log In",
+    "signup": "Sign Up",
+    "welcome": "Welcome"
+  },
+  "chatbot": {
+    "welcomeMessage": "Hello. I'm your assistant. Ask me about numeric sequences, practice, or how to use the journal.",
+    "assistantName": "Grabovoi Assistant",
+    "expertIn": "Expert in teachings",
+    "thinking": "Thinking",
+    "inputPlaceholder": "Type your question...",
+    "send": "Send",
+    "openAssistant": "Open Grabovoi Assistant",
+    "invalidResponse": "Invalid server response",
+    "unknownError": "Unknown error",
+    "errorMessage": "I couldn't respond right now. Details:"
+  },
+  "relatedSequences": {
+    "title": "Related Sequences",
+    "moreFrom": "More sequences from category",
+    "source": "Source"
+  }
+}
+
+

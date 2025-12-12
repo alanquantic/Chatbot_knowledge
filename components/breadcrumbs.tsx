@@ -1,8 +1,9 @@
 "use client";
 
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 import { ChevronRight, Home } from 'lucide-react';
-import { usePathname } from 'next/navigation';
+import { usePathname } from '@/i18n/navigation';
+import { useTranslations, useLocale } from 'next-intl';
 
 interface BreadcrumbItem {
   label: string;
@@ -13,23 +14,31 @@ interface BreadcrumbsProps {
   items?: BreadcrumbItem[];
 }
 
-const pathToLabel: Record<string, string> = {
-  '': 'Inicio',
-  'secuencias': 'Secuencias Numéricas',
-  'libros': 'Biblioteca',
-  'guia': 'Guía Práctica',
-  'webinars': 'Webinars',
-  'prk1u': 'Dispositivo PRK-1U',
-  'favoritos': 'Favoritos',
-  'diario': 'Diario Personal',
-  'disenos': 'Diseños',
-  'auth': 'Autenticación',
-  'login': 'Iniciar Sesión',
-  'signup': 'Registrarse',
-};
-
 export function Breadcrumbs({ items }: BreadcrumbsProps) {
   const pathname = usePathname();
+  const t = useTranslations('breadcrumbs');
+  const locale = useLocale();
+
+  const getPathLabel = (path: string): string => {
+    const labels: Record<string, string> = {
+      '': t('home'),
+      'es': t('home'),
+      'en': t('home'),
+      'secuencias': t('sequences'),
+      'libros': t('books'),
+      'guia': t('guide'),
+      'webinars': t('webinars'),
+      'prk1u': t('prk1u'),
+      'favoritos': t('favorites'),
+      'diario': t('journal'),
+      'disenos': t('designs'),
+      'auth': t('auth'),
+      'login': t('login'),
+      'signup': t('signup'),
+      'bienvenida': t('welcome'),
+    };
+    return labels[path] ?? path;
+  };
   
   // If custom items are provided, use them
   if (items) {
@@ -59,7 +68,9 @@ export function Breadcrumbs({ items }: BreadcrumbsProps) {
 
   // Auto-generate breadcrumbs from pathname
   const paths = pathname?.split('/')?.filter(Boolean) ?? [];
-  if (paths.length === 0) return null;
+  // Filter out locale prefixes
+  const filteredPaths = paths.filter(p => p !== 'es' && p !== 'en');
+  if (filteredPaths.length === 0) return null;
 
   return (
     <nav className="flex items-center space-x-2 text-sm text-muted-foreground mb-6" aria-label="Breadcrumb">
@@ -69,10 +80,10 @@ export function Breadcrumbs({ items }: BreadcrumbsProps) {
       >
         <Home className="h-4 w-4" />
       </Link>
-      {paths?.map?.((path, index) => {
-        const href = '/' + paths.slice(0, index + 1).join('/');
-        const isLast = index === paths.length - 1;
-        const label = pathToLabel?.[path] ?? path;
+      {filteredPaths?.map?.((path, index) => {
+        const href = '/' + filteredPaths.slice(0, index + 1).join('/');
+        const isLast = index === filteredPaths.length - 1;
+        const label = getPathLabel(path);
 
         return (
           <div key={path + index} className="flex items-center space-x-2">

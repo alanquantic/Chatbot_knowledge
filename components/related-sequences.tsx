@@ -5,6 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import { SequenceSphere } from '@/components/sequence-sphere';
 import { FavoriteButton } from '@/components/favorite-button';
 import { Sparkles } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 interface Sequence {
   secuencia: string;
@@ -31,23 +32,19 @@ const categoryIcons: Record<string, string> = {
   'proteccion_armonizacion': '🛡️',
 };
 
-const categoryNames: Record<string, string> = {
-  'salud_fisica': 'Salud Física',
-  'salud_mental_emocional': 'Salud Mental y Emocional',
-  'abundancia_prosperidad': 'Abundancia y Prosperidad',
-  'relaciones_amor': 'Relaciones y Amor',
-  'desarrollo_espiritual': 'Desarrollo Espiritual',
-  'manifestacion_general': 'Manifestación General',
-  'rejuvenecimiento_belleza': 'Rejuvenecimiento y Belleza',
-  'proteccion_armonizacion': 'Protección y Armonización',
-};
-
 export function RelatedSequences({ 
   currentSequence, 
   category, 
   allSequences, 
   maxItems = 3 
 }: RelatedSequencesProps) {
+  const t = useTranslations('relatedSequences');
+  const tCat = useTranslations('sequences.categories');
+
+  const getCategoryName = (key: string): string => {
+    return tCat(key as any) || key;
+  };
+
   // Filter sequences by same category, excluding the current one
   const relatedSequences = allSequences
     ?.filter?.(seq => 
@@ -65,10 +62,10 @@ export function RelatedSequences({
       <CardHeader>
         <CardTitle className="flex items-center space-x-2">
           <Sparkles className="h-5 w-5 text-primary" />
-          <span>Secuencias Relacionadas</span>
+          <span>{t('title')}</span>
         </CardTitle>
         <CardDescription>
-          Más secuencias de la categoría {categoryIcons?.[category]} {categoryNames?.[category]}
+          {t('moreFrom')} {categoryIcons?.[category]} {getCategoryName(category)}
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -78,7 +75,7 @@ export function RelatedSequences({
               <CardHeader>
                 <div className="flex items-start justify-between mb-4">
                   <Badge variant="secondary" className="text-xs">
-                    {categoryIcons?.[seq?.categoria] ?? ''} {categoryNames?.[seq?.categoria]}
+                    {categoryIcons?.[seq?.categoria] ?? ''} {getCategoryName(seq?.categoria)}
                   </Badge>
                   <FavoriteButton itemType="sequence" itemId={seq?.secuencia} />
                 </div>
@@ -91,7 +88,7 @@ export function RelatedSequences({
               </CardHeader>
               <CardContent>
                 <div className="text-xs text-muted-foreground text-center">
-                  <strong>Fuente:</strong> {seq?.fuente}
+                  <strong>{t('source')}:</strong> {seq?.fuente}
                 </div>
               </CardContent>
             </Card>

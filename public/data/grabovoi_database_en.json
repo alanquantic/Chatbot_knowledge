@@ -1,0 +1,864 @@
+{
+  "autor": {
+    "nombre": "Grigori Petrovich Grabovoi",
+    "nombre_ruso": "Григорий Петрович Грабовой",
+    "fecha_nacimiento": "November 14, 1963",
+    "lugar_nacimiento": "Bogara, Kirov district, Chimkent region, Kazakhstan (then USSR)",
+    "biografia": "Grigori Petrovich Grabovoi is a Russian-Kazakh mathematician, academic and author known worldwide for his teachings on numeric sequences for healing, concentration methods and harmonious development. He has dedicated his life to developing technologies of salvation and eternal development. Recognized for his alleged clairvoyance and healing abilities, he has worked as a consultant for various organizations and developed a complete knowledge system based on the influence of consciousness over material reality. His doctrine focuses on 'General Salvation and Harmonious Development', emphasizing that each person can master their destiny through conscious control of life events.",
+    "formacion": {
+      "universidad": "Tashkent State University",
+      "facultad": "Faculty of Applied Mathematics",
+      "especialidad": "Mechanics",
+      "año_graduacion": 1986,
+      "doctorados": [
+        "Doctor of Sciences (Mathematics and Physics)",
+        "Doctor of Philosophy",
+        "Doctor of Technical Sciences"
+      ]
+    },
+    "titulos_academicos": [
+      "Academician of the International Academy of Informatization",
+      "Academician of the Russian Academy of Sciences",
+      "Academician of the Russian Academy of Natural Sciences",
+      "Academician of the Italian Academy of Sciences",
+      "Associate Member of the United Nations",
+      "Grand Master of World Science and Education",
+      "Member of the Professional League of Psychotherapists"
+    ],
+    "cargos_profesionales": [
+      "Consultant to the Federal Aviation Service of Russia",
+      "Creator of the 'Information Creation Area' (registered discovery)"
+    ],
+    "reconocimientos": [
+      {
+        "premio": "I.P. Pavlov Silver Medal",
+        "otorgado_por": "Russian Academy of Sciences",
+        "razon": "Contributions to the improvement of medicine and public health"
+      },
+      {
+        "premio": "Peter the Great Medal",
+        "razon": "Contribution to the revival of science and economy in Russia"
+      }
+    ],
+    "registro_unesco": "His teachings 'On Salvation and Harmonious Development' are registered in the US Library of Congress and approved as an independent discipline by the Russian Ministry of Education"
+  },
+  "libros": [
+    {
+      "id": 1,
+      "titulo_original": "Восстановление организма человека концентрацией на числах",
+      "titulo_espanol": "Healing Numbers",
+      "titulo_alternativo": "Restoration of the Human Organism Through Concentration on Numbers",
+      "año": 2012,
+      "año_edicion_original_ruso": 2001,
+      "editorial": "Editorial Sirio",
+      "isbn": "978-84-7808-879-9",
+      "paginas": 288,
+      "formato": "Paperback",
+      "categoria": "Health and Healing",
+      "resumen": "This fundamental work compiles approximately one thousand diseases and health conditions, assigning each a specific 7, 8, or 9-digit numeric sequence. Grabovoi explains that disease is a deviation from the organism's natural state, and that through mental concentration on these specific numeric sequences, the body can regenerate and return to normalcy, thus facilitating healing. The book is based on the premise that numbers generate specific vibrations that act as vibrational codes to normalize the organism's conditions. The author maintains that concentration can be performed at any time through visualization, imagination, writing, or pronouncing the numbers. Chapters are organized by body systems: critical diseases, tumoral, circulatory system, rheumatic, respiratory, digestive, among others. The method requires no special equipment and can be practiced by anyone.",
+      "conceptos_clave": [
+        "Disease as deviation from the 'Creator's Norm'",
+        "Numeric sequences as vibrational healing codes",
+        "Conscious concentration as a restoration tool",
+        "The regenerative power of numbers",
+        "Healing through return to the organism's natural state",
+        "Preventive and curative application of sequences",
+        "Organization of diseases by body systems",
+        "The body's innate capacity to self-regenerate with correct guidance"
+      ],
+      "secuencias_destacadas": [
+        {"secuencia": "1814321", "proposito": "General perfect health"},
+        {"secuencia": "1489145", "proposito": "Immune system strengthening"},
+        {"secuencia": "8143421", "proposito": "Organ regeneration"},
+        {"secuencia": "5823214", "proposito": "Cardiovascular system normalization"},
+        {"secuencia": "1823451", "proposito": "Nervous system harmonization"},
+        {"secuencia": "148543293", "proposito": "Cellular rejuvenation"}
+      ],
+      "aplicacion_practica": "To use numeric sequences: 1) Identify the specific disease or condition in the book's index, 2) Locate the corresponding numeric sequence, 3) Mentally concentrate on the numbers, visualizing them one by one or as a whole, 4) Practice concentration intensively for at least 2 months, 5) Optionally, write the numbers on everyday objects like water bottles, mirrors, or paper, 6) Maintain a positive attitude and focus on the desired health outcome, 7) Concentration can be done at any time of day for a few minutes.",
+      "idiomas_disponibles": ["Spanish", "Russian (original)", "English", "German", "French", "Portuguese", "Italian"]
+    },
+    {
+      "id": 2,
+      "titulo_original": "Методы концентрации",
+      "titulo_espanol": "Concentration Methods",
+      "titulo_alternativo": "Daily Concentration Methods: Illustrated",
+      "año": 2014,
+      "editorial": "CreateSpace Independent Publishing Platform",
+      "paginas": 38,
+      "formato": "Paperback",
+      "categoria": "Methods and Practices",
+      "resumen": "This book presents a complete system of concentration exercises designed for each day of the month. The exercises are aimed at developing consciousness, guiding life events in a favorable direction, achieving perfect health, and harmonizing with the vibrations of the universe. Each day of the month has a specific exercise that may involve concentration on different parts of the body, geometric visualizations, numeric sequences, rainbow colors, or elements of nature.",
+      "conceptos_clave": [
+        "Daily development of consciousness through systematic exercises",
+        "Concentration on specific body parts as power points",
+        "Visualization of geometric forms (spheres, cones, cylinders)",
+        "Monthly cyclic practice for sustained results",
+        "Harmonization with universal vibrations",
+        "Conscious control of future events through the mind"
+      ],
+      "idiomas_disponibles": ["Spanish", "Russian (original)", "English", "Portuguese"]
+    }
+  ],
+  "conceptos_fundamentales_generales": [
+    "The Creator's Norm: Perfect original state of all existence",
+    "Eternal Development: Infinite evolution without destruction",
+    "General Salvation and Harmonious Development: Collective goal of humanity",
+    "Information as the basis of reality: Everything is informational structure",
+    "Soul-Spirit-Consciousness: Operative trinity of the human being",
+    "Numeric sequences as vibrational codes",
+    "Conscious control of events through concentration",
+    "Reality piloting: Active direction of vital experience",
+    "Regeneration and rejuvenation as natural capabilities",
+    "Prevention of catastrophes through collective consciousness",
+    "Eternal life and physical immortality as achievable goals",
+    "Resurrection as direct reality, not symbolic"
+  ],
+  "metodos_aplicacion_generales": [
+    "Mental concentration on numeric sequences",
+    "Writing numbers on everyday objects",
+    "Pronouncing or singing sequences",
+    "Visualization of numbers in luminous geometric forms",
+    "Daily concentration exercises on body parts",
+    "Working with colors and geometric shapes",
+    "Concentration on physical objects in reality",
+    "Meditation on visionary images",
+    "Correction of the past through visualization",
+    "Acceleration or modification of future events",
+    "Sending love impulses for regeneration",
+    "Conscious connection with soul and divine consciousness"
+  ],
+  "recursos_adicionales": {
+    "sitios_oficiales": [
+      "https://www.grigori-grabovoi.world/",
+      "https://grabovoifoundation.org/",
+      "https://education.grabovoifoundation.org/"
+    ],
+    "institutos_autorizados": [
+      "Grigori Grabovoi Edu-Center (Switzerland)",
+      "Spanish Institute of Grigori Grabovoi Studies (IEGG)",
+      "Global Grigori Grabovoi"
+    ],
+    "dispositivos": [
+      {
+        "nombre": "PRK-1U",
+        "descripcion": "Device developed by Grabovoi to amplify concentration practices and reality piloting"
+      }
+    ],
+    "formatos_estudio": [
+      "Official 3-year training programs",
+      "Online introductory courses",
+      "Didactic classes and masterclasses",
+      "In-person seminars",
+      "Self-study material"
+    ]
+  },
+  "notas_importantes": [
+    "Grigori Grabovoi was convicted in 2008 for fraud related to promises of resurrection to mothers of Beslan assault victims. He was sentenced to 11 years (reduced to 8) and released in 2010.",
+    "His teachings have been criticized as pseudoscience by Russian academics, including E.P. Kruglyakov of the Russian Academy of Sciences.",
+    "Despite controversies, his teachings have gained followers globally and are available in more than 20 languages.",
+    "Grabovoi's methods should not replace conventional medical treatment but complement it.",
+    "The effectiveness of the methods varies according to the individual, their faith, consistency, and correct application.",
+    "It is recommended to study the complete teachings and not just work with isolated sequences for best results.",
+    "Many of his works are independently published and available on Amazon and other platforms.",
+    "There are more than 1200 works written by Grabovoi; here the 20 most fundamental and accessible are presented."
+  ],
+  "webinars_youtube": [
+    {
+      "titulo": "The Teachings of Grigori Grabovoi",
+      "url": "https://www.youtube.com/watch?v=CrrawfIOca8",
+      "duracion": "112 minutes",
+      "idioma": "English and Spanish (bilingual)",
+      "fecha_publicacion": "2021",
+      "instructor": "Olga Toloshnaya (International Education Center of Grigori Grabovoi)",
+      "temas_principales": [
+        "Grigori Grabovoi control methods",
+        "Correct concentration",
+        "Psychological normalization",
+        "Using the PRK-1U device",
+        "Transforming aggression into creativity",
+        "Numeric sequences for business and personal life"
+      ],
+      "enseñanzas_clave": [
+        "Creation mechanism: Thoughts create radiation and build events (E = V × S)",
+        "Daily concentration on the same goal intensifies the light that materializes objectives",
+        "State of 'joy, light and love' produces the strongest light to manifest",
+        "Lack of confidence and anxiety are interferences that weaken creative light",
+        "The book 'Numeric Sequences for Psychological Normalization' is fundamental",
+        "Each day add the current date to numeric sequences to intensify them",
+        "Systematic practice is more important than luck or chance",
+        "Transform aggression into creativity using the Wolf Constellation"
+      ],
+      "secuencias_numericas_mencionadas": [
+        {
+          "secuencia": "5174891948",
+          "proposito": "Anxiety / Psychological normalization",
+          "descripcion": "State of purposeful readiness, increase of sensory attention and motor tension in potential danger situation"
+        },
+        {
+          "secuencia": "49181951749814",
+          "proposito": "Self-esteem / Self-confidence",
+          "descripcion": "Preparation of the subject to decide complex tasks, raise aspiration level without fear of failure"
+        },
+        {
+          "secuencia": "316498514 81",
+          "proposito": "Wolf Constellation for hostility elimination",
+          "descripcion": "Transform aggressive systems into creativity, wrap aggression and convert it into creation"
+        }
+      ]
+    }
+  ],
+  "secuencias_adicionales": [
+    {
+      "numero": "5174891948",
+      "proposito": "Anxiety - State of preparation and increase of sensory attention",
+      "categoria": "Psychological Normalization",
+      "fuente": "YouTube - Olga Toloshnaya Webinar",
+      "instrucciones": "Use with current date as second row. Illuminate with white-silver light. Send light towards yourself. Maintain intention: 'My psychological state corresponds to the Creator's norm'"
+    },
+    {
+      "numero": "49181951749814",
+      "proposito": "Self-confidence - Preparation to decide complex tasks without fear of failure",
+      "categoria": "Psychological Normalization",
+      "fuente": "YouTube - Olga Toloshnaya Webinar",
+      "instrucciones": "Concentrate on this sequence daily. Add current date as second row. Visualize achievement of goals with confidence. Useful for exams, interviews, presentations"
+    },
+    {
+      "numero": "31649851481",
+      "proposito": "Wolf Constellation - Transform aggression into creativity, hostility elimination",
+      "categoria": "Relationships and Conflicts",
+      "fuente": "YouTube - Olga Toloshnaya Webinar / Book: Star Numbers for Eternal Life",
+      "instrucciones": "Visualize the Wolf Constellation as an information sphere. Place organizational structure of aggressive person inside. Add the sequence to the sphere. Wrap with soft material (cotton, light). Transform into 'Creation Sphere' (crystal, gold, silver). Aggression becomes creativity"
+    },
+    {
+      "numero": "175170",
+      "proposito": "Unexpected wealth - 98,016 people have used this code",
+      "categoria": "Abundance and Prosperity",
+      "fuente": "YouTube - Brian Scott / healingnumbers.info",
+      "instrucciones": "Focus on the number in mind. Visualize unexpected wealth arriving. By using this number, you connect with the energetic stream of 98,000+ people who have used it for the same purpose"
+    },
+    {
+      "numero": "741",
+      "proposito": "Immediate solution - Quick response to situations",
+      "categoria": "General - Quick Manifestation",
+      "fuente": "YouTube - Brian Scott / Grabovoi Numbers",
+      "instrucciones": "Short and powerful code for situations requiring immediate solution. Easy to memorize and use in the moment"
+    },
+    {
+      "numero": "8898",
+      "proposito": "Materialization - Manifest what is imagined immediately",
+      "categoria": "General - Quick Manifestation",
+      "fuente": "YouTube - Brian Scott / Grabovoi Numbers",
+      "instrucciones": "Use along with clear visualization of what you want to materialize. Indicates that what is imagined will manifest very quickly"
+    },
+    {
+      "numero": "1814321",
+      "proposito": "Perfect health - General body normalization",
+      "categoria": "Health",
+      "fuente": "Grabovoi - Healing Numbers",
+      "instrucciones": "Basic sequence for general health. Concentrate while visualizing light expanding through your body"
+    },
+    {
+      "numero": "71427321893",
+      "proposito": "Infinite prosperity - Money attraction",
+      "categoria": "Abundance and Prosperity",
+      "fuente": "Grabovoi",
+      "instrucciones": "Repeat 21 times daily for 31 days. Visualize golden river of abundance flowing towards you"
+    },
+    {
+      "numero": "2145432",
+      "proposito": "Rejuvenation - Cellular regeneration",
+      "categoria": "Health and Rejuvenation",
+      "fuente": "Grabovoi",
+      "instrucciones": "Visualize yourself at age 24. Repeat 28 times while sending love to each cell of your body"
+    }
+  ],
+  "guia_practica": {
+    "introduccion": {
+      "titulo": "Practical Guide for Using Grigori Grabovoi's Numeric Sequences",
+      "descripcion": "This guide provides clear and concise instructions for working with Grigori Grabovoi's numeric sequences, designed for healing, manifestation, and personal development.",
+      "nota_importante": "Grabovoi's numeric sequences are a complementary tool. They should not replace conventional medical treatment or professional advice. They are based on the premise that conscious concentration can influence reality at an informational level."
+    },
+    "conceptos_fundamentales": [
+      {
+        "concepto": "The Creator's Norm",
+        "explicacion": "It is the state of original divine perfection. All existence has a perfect pattern at the informational level. Disease or imbalance occurs when we deviate from this norm. Numeric sequences help return to this perfect state."
+      },
+      {
+        "concepto": "Informational Structure of Reality",
+        "explicacion": "Everything in the universe is composed of structured information with specific vibrational frequencies. Numbers are vibrational codes that can interact with these informational structures to produce changes in physical reality."
+      },
+      {
+        "concepto": "Creative Consciousness",
+        "explicacion": "Human consciousness has the power to influence reality. Through focused concentration and clear intention, we can reprogram informational structures and manifest changes in our health, circumstances, and life."
+      },
+      {
+        "concepto": "Soul, Spirit and Consciousness",
+        "explicacion": "The Soul creates light and information. The Spirit moves this information toward Consciousness. Consciousness realizes the information into objects and events of physical reality. These three aspects work together in the practice of numeric sequences."
+      },
+      {
+        "concepto": "Reality Piloting",
+        "explicacion": "It is the active and conscious control of events in your life through concentration techniques. It is not about waiting passively, but actively directing your reality toward desired results."
+      }
+    ],
+    "como_funcionan_secuencias": {
+      "titulo": "How Do Numeric Sequences Work?",
+      "explicacion_general": "Grabovoi's numeric sequences work as 'vibrational codes' that resonate with specific frequencies in the universe. Each number has a particular vibration and meaning:",
+      "significado_numeros": {
+        "0": "Transition / Period of change / Area where a number's quality changes (zero space)",
+        "1": "First / Beginning / New start",
+        "2": "Action / Movement / Duality",
+        "3": "Objective / Goal / Creator's logic with human logic",
+        "4": "Correlation with external world / Communication / Reality / Social contact",
+        "5": "Correlation with internal world / Self-esteem / Cellular level / Self-worth awareness",
+        "6": "Optical system information / Principles / Foundations / Values",
+        "7": "Platform for soul development / Love",
+        "8": "Space-time structure / Exit to infinity",
+        "9": "Relationship with the creator's number / Creator containing all elements"
+      },
+      "principio_funcionamiento": "When concentrating on a specific sequence, your consciousness aligns with the vibrational frequency of those numbers. This alignment creates an information field that influences the corresponding structure of your body, mind, or circumstances, guiding it back to the 'Norm' or perfect state.",
+      "importancia_espacios": "The spaces between numbers are NOT random. They represent significant pauses where a vibrational transition occurs. When pronouncing or visualizing sequences, always respect these spaces, making a small mental or vocal pause."
+    },
+    "metodos_concentracion": {
+      "titulo": "Main Concentration Methods",
+      "metodos_activos": [
+        {
+          "nombre": "Vocal Recitation",
+          "descripcion": "Pronounce the numbers aloud or mentally, respecting the spaces.",
+          "pasos": [
+            "1. Identify the appropriate sequence for your objective",
+            "2. Read the numbers individually: for example, 741 is pronounced 'seven - four - one', not 'seven hundred forty-one'",
+            "3. Respect the spaces between numbers by making brief pauses",
+            "4. Repeat the sequence between 3 and 45 times, or until you feel it is sufficient",
+            "5. Keep your intention clear in mind while reciting"
+          ],
+          "frecuencia": "Daily, preferably at the same time for 21-31 days"
+        },
+        {
+          "nombre": "Visualization with Light",
+          "descripcion": "Imagine the numbers shining with white-silver or golden light.",
+          "pasos": [
+            "1. Close your eyes and relax",
+            "2. Visualize the sequence numbers in your mind",
+            "3. Imagine each number shining with intense white-silver or golden light",
+            "4. You can visualize the numbers in three-dimensional form (3D), floating in front of you",
+            "5. Observe how that light expands and envelops your body or the desired situation",
+            "6. Maintain this visualization for 3-10 minutes"
+          ],
+          "frecuencia": "1-3 times a day, especially in the morning and before sleeping"
+        },
+        {
+          "nombre": "Sphere Method (Piloting)",
+          "descripcion": "Advanced technique using geometric visualization.",
+          "pasos": [
+            "1. Visualize a sphere of silver or golden light approximately 50 cm in diameter",
+            "2. Place this sphere at the height of your heart, in front of you",
+            "3. Inside the sphere, visualize the numeric sequence shining intensely",
+            "4. Below the numbers, visualize your goal already manifested (image, sensation, or word)",
+            "5. Repeat this visualization 21-28 times in a row",
+            "6. When finished, 'release' the sphere toward infinity with love and gratitude",
+            "7. Trust that your intention is being processed by the universe"
+          ],
+          "frecuencia": "Once a day for 21-31 consecutive days"
+        },
+        {
+          "nombre": "Intensification with Current Date",
+          "descripcion": "Method to amplify the effectiveness of sequences.",
+          "pasos": [
+            "1. Write the numeric sequence on the first line",
+            "2. Below, write the current date in numeric format (example: 28112025 for November 28, 2025)",
+            "3. Visualize both sequences illuminated simultaneously with bright light",
+            "4. Imagine the light from both merging and directing toward you or your objective",
+            "5. Maintain concentration for several minutes",
+            "6. Update the date each day"
+          ],
+          "frecuencia": "Daily, updating the date each day"
+        }
+      ],
+      "metodos_pasivos": [
+        {
+          "nombre": "Writing on Everyday Objects",
+          "descripcion": "Place the sequences on objects you use regularly.",
+          "aplicaciones": [
+            "Write on water bottles (water absorbs the vibration)",
+            "Place on adhesive tape over mirrors",
+            "Write on paper and put under the pillow",
+            "Set as wallpaper on phone or computer",
+            "Write on cards and carry in wallet or pocket",
+            "Place on door frames or at work place"
+          ],
+          "nota": "Numbers work continuously in the background, even without active concentration"
+        },
+        {
+          "nombre": "Writing on the Body",
+          "descripcion": "Write the sequence directly on the skin.",
+          "aplicaciones": [
+            "With washable marker, write on the left wrist",
+            "Write on the body area that needs healing",
+            "Write on the palm of the non-dominant hand",
+            "Renew daily"
+          ],
+          "nota": "Direct contact with the skin allows a more intimate connection with the vibration"
+        },
+        {
+          "nombre": "Writing in Journal or Paper",
+          "descripcion": "Write the sequences multiple times.",
+          "pasos": [
+            "1. Write the sequence respecting the spaces",
+            "2. Write it between 7 and 49 times (sacred numbers)",
+            "3. While writing, keep your intention in mind",
+            "4. You can also write your objective next to each sequence",
+            "5. Keep the paper in a special place or carry it with you"
+          ],
+          "frecuencia": "Daily during the period of working with that intention"
+        }
+      ]
+    },
+    "ejercicios_basicos": [
+      {
+        "nombre": "Exercise 1: Perfect Health - Basic Starting Exercise",
+        "objetivo": "Familiarize yourself with the technique and improve general health",
+        "secuencia": "1814321",
+        "duracion": "5-10 minutes daily",
+        "pasos_detallados": [
+          "1. Sit comfortably in a quiet place",
+          "2. Take 3 deep breaths to relax",
+          "3. Close your eyes and visualize the numbers: 1 8 1 4 3 2 1",
+          "4. Imagine each number shining with white-silver light",
+          "5. Mentally pronounce: 'one - eight - one - four - three - two - one'",
+          "6. Repeat 7 times (sacred number)",
+          "7. Visualize this light expanding throughout your body",
+          "8. Feel how your body returns to its perfect state of health",
+          "9. When finished, take a deep breath and give thanks",
+          "10. Open your eyes slowly"
+        ],
+        "nivel": "Beginner",
+        "tiempo_recomendado": "Practice for 21 consecutive days"
+      },
+      {
+        "nombre": "Exercise 2: Quick Manifestation - Urgent Situation",
+        "objetivo": "Get immediate solution to a problem or situation",
+        "secuencia": "741",
+        "duracion": "2-3 minutes, repeat as needed",
+        "pasos_detallados": [
+          "1. Clearly identify the situation that needs solution",
+          "2. Take a deep breath",
+          "3. Visualize or pronounce: 'seven - four - one'",
+          "4. Imagine the three numbers in the form of a golden light triangle",
+          "5. Mentally place your situation inside that triangle",
+          "6. Repeat the sequence 9 times (completion number)",
+          "7. Visualize the solution already manifested",
+          "8. Let go of control and trust"
+        ],
+        "nivel": "Beginner",
+        "nota": "This code is very powerful for urgent situations. Use it when you need quick answers or solutions"
+      },
+      {
+        "nombre": "Exercise 3: Daily Harmonization - Present Balance",
+        "objetivo": "Maintain harmony in your present day",
+        "secuencia": "71042",
+        "duracion": "5 minutes in the morning",
+        "pasos_detallados": [
+          "1. Practice this exercise every morning upon waking",
+          "2. Before getting out of bed, take a deep breath",
+          "3. Visualize your day unfolding in perfect harmony",
+          "4. Mentally pronounce: 'seven - one - zero - four - two'",
+          "5. Repeat 14 times (2 x 7)",
+          "6. Imagine the entire day wrapped in harmonious golden light",
+          "7. Affirm: 'My day unfolds in perfect harmony and fluidity'",
+          "8. Get up with confidence and gratitude"
+        ],
+        "nivel": "Beginner",
+        "beneficios": "Reduces daily stress, improves synchronicities, facilitates conflict resolution"
+      },
+      {
+        "nombre": "Exercise 4: Infinite Prosperity - Continuous Abundance",
+        "objetivo": "Attract sustained prosperity and abundance",
+        "secuencia": "71427321893",
+        "duracion": "10-15 minutes daily",
+        "pasos_detallados": [
+          "1. Find a quiet and comfortable place",
+          "2. Place one hand on your heart",
+          "3. Breathe deeply connecting with a feeling of gratitude",
+          "4. Pronounce the sequence slowly, respecting spaces: 'seven - one - four - two - seven - three - two - one - eight - nine - three'",
+          "5. While pronouncing, visualize abundance flowing toward you like a golden river",
+          "6. Repeat 21 times",
+          "7. Visualize your life with material, emotional, and spiritual abundance",
+          "8. Feel the emotion of already having that abundance",
+          "9. Thank the infinite source of prosperity",
+          "10. Write the sequence on a green card and carry it in your wallet"
+        ],
+        "nivel": "Intermediate",
+        "tiempo_recomendado": "Practice for 31 consecutive days for optimal results"
+      },
+      {
+        "nombre": "Exercise 5: Cellular Rejuvenation - Radiant Youth",
+        "objetivo": "Reverse aging and rejuvenate at the cellular level",
+        "secuencia": "2145432",
+        "duracion": "15-20 minutes daily",
+        "pasos_detallados": [
+          "1. Sit or lie down comfortably",
+          "2. Take 10 deep and conscious breaths",
+          "3. Visualize your body at age 24 (optimal age according to Grabovoi)",
+          "4. Pronounce: 'two - one - four - five - four - three - two'",
+          "5. Imagine each cell of your body lighting up with this sequence",
+          "6. Visualize how each cell regenerates, rejuvenates, and returns to its perfect state",
+          "7. Repeat the sequence 28 times (number of days in lunar cycle)",
+          "8. Send love impulses from your heart to each cell",
+          "9. Visualize the 'Creator's love cell' in your heart, expanding",
+          "10. Maintain the image of your young, radiant, and vital self",
+          "11. Thank your body for its ability to regenerate",
+          "12. Optional: Combine with mirror visualization affirming 'I am young, vital, and radiant'"
+        ],
+        "nivel": "Advanced",
+        "tiempo_recomendado": "Minimum 2-3 months of continuous practice to see visible physical results",
+        "nota_adicional": "Combine with healthy habits: conscious eating, gentle exercise, hydration, and adequate rest"
+      }
+    ],
+    "recomendaciones_importantes": [
+      {
+        "titulo": "Work with One Intention at a Time",
+        "descripcion": "Although you can use multiple sequences, focus mainly on one intention at a time to not disperse your energy. If working with several sequences, organize them by categories and dedicate separate moments to each."
+      },
+      {
+        "titulo": "Respect the Spaces in Sequences",
+        "descripcion": "The spaces between numbers are fundamental. They represent vibrational transitions and significant pauses. Always make a small mental or vocal pause at the spaces when pronouncing or visualizing."
+      },
+      {
+        "titulo": "Consistency and Regularity",
+        "descripcion": "Daily practice is much more effective than intense sporadic sessions. Establish a fixed schedule (preferably morning and/or night) and maintain practice for at least 21-31 consecutive days."
+      },
+      {
+        "titulo": "Combine Active and Passive Methods",
+        "descripcion": "For best results, use both active methods (visualization, recitation) and passive ones (writing on objects, energized water). This creates a continuous field of influence."
+      },
+      {
+        "titulo": "Don't Obsess About the 'How'",
+        "descripcion": "Your job is to concentrate on the 'what' (the desired result), not the 'how' it will manifest. Trust that the universe will find the best path to materialize your intention."
+      },
+      {
+        "titulo": "Complement, Don't Substitute",
+        "descripcion": "Grabovoi sequences are complementary. For health problems, continue with your medical treatment. For material goals, take actions aligned with your intention."
+      },
+      {
+        "titulo": "Keep a Practice Journal",
+        "descripcion": "Record your practices, observations, and results. This will help you identify which methods work best for you and recognize progressive changes."
+      },
+      {
+        "titulo": "Be Patient and Observant",
+        "descripcion": "Results can be immediate (especially with 741) or gradual (healing, rejuvenation). Observe small changes, synchronicities, and subtle improvements. Trust the process."
+      }
+    ],
+    "estado_mental_optimo": {
+      "titulo": "Optimal Mental State: Joy, Light, and Love",
+      "descripcion": "The emotional state during practice is crucial for the effectiveness of numeric sequences.",
+      "estados_ideales": [
+        {
+          "estado": "Joy",
+          "explicacion": "Joy is a high vibration that amplifies the effectiveness of sequences. Before starting your practice, evoke thoughts or memories that generate genuine joy. A sincere smile also raises your vibration."
+        },
+        {
+          "estado": "Light",
+          "explicacion": "Visualizing bright light (white-silver or golden) around the numbers and in your body intensifies manifesting power. Light represents the pure information of the Creator and perfection."
+        },
+        {
+          "estado": "Love",
+          "explicacion": "Love is the highest and most powerful frequency. Send love toward yourself, toward your objective, toward each cell of your body. Love has the same structure as divine creation, according to Grabovoi."
+        }
+      ],
+      "estados_a_evitar": [
+        "Excessive doubt and skepticism (you can have questions, but practice with an open mind)",
+        "Anxiety or desperation (these block the flow)",
+        "Anger, resentment, or active negativity",
+        "Lack of trust in the process",
+        "Extreme impatience for immediate results"
+      ],
+      "preparacion_mental": [
+        "Before practicing, take 3-10 deep breaths",
+        "Center your attention in the present",
+        "Release rigid expectations about how things should occur",
+        "Cultivate a feeling of anticipatory gratitude (thank as if you already had the result)",
+        "Maintain an attitude of calm certainty: 'This is already in the process of manifestation'",
+        "Smile gently during practice"
+      ],
+      "afirmacion_clave": "I practice with joy in my heart, light in my mind, and love in my being. My consciousness aligns with the Creator's perfection. What I seek is already seeking me. So it is."
+    },
+    "preguntas_frecuentes": [
+      {
+        "pregunta": "How long does it take for a sequence to work?",
+        "respuesta": "It varies according to the objective and the person. Some codes like 741 can work almost immediately. Others, like rejuvenation or deep healing, require constant practice for weeks or months. Consistency is more important than intensity."
+      },
+      {
+        "pregunta": "Can I use multiple sequences at the same time?",
+        "respuesta": "Yes, but with organization. Don't mix sequences from very different categories in the same session (for example, health with finances). You can work with 2-3 related sequences, concentrating on each one separately. Use one main sequence and others as secondary."
+      },
+      {
+        "pregunta": "What do I do if I can't visualize well?",
+        "respuesta": "Visualization doesn't need to be perfect. Some people are more kinesthetic (feel) or auditory (hear) than visual. You can pronounce the numbers aloud, write them repeatedly, or simply 'know' they are there without seeing them clearly. Intention is most important."
+      },
+      {
+        "pregunta": "Do sequences replace medical treatment?",
+        "respuesta": "NO. Sequences are complementary. Never abandon medical treatment without consulting your doctor. Use sequences as additional support along with conventional medicine, not as replacement."
+      },
+      {
+        "pregunta": "Does it matter if I make a mistake pronouncing a number?",
+        "respuesta": "If you make a mistake, simply correct and continue. Don't lose concentration worrying. What's important is the intention and general focus. With practice, pronunciation becomes automatic."
+      },
+      {
+        "pregunta": "Can I teach these methods to others?",
+        "respuesta": "Yes, you can share what you learn. However, respect each person's level of openness. Don't impose. Share from personal experience and allow each person to decide if they want to explore these methods."
+      }
+    ],
+    "recursos_adicionales_estudio": [
+      "Book 'Healing Numbers' by Grigori Grabovoi (complete list of ~1000 diseases)",
+      "Book 'Concentration Methods' (daily exercises for each day of the month)",
+      "Book 'Practical Guide for Using Numeric Sequences' (detailed instructions)",
+      "Book 'Numbers for Successful Business' (more than 1000 business sequences)",
+      "Books from the series 'The Teachings of Grigori Grabovoi on God' (spiritual development)",
+      "Official website: grigori-grabovoi.world",
+      "Grigori Grabovoi official Education Center",
+      "YouTube channel of the Spanish Grabovoi Institute (Carmen Cid)"
+    ],
+    "como_pronunciar": {
+      "descripcion": "Read the numbers individually, NOT as a complete number. For example, 741 is pronounced 'seven - four - one', NOT 'seven hundred forty-one'.",
+      "correcto": "For 1814321: 'one - eight - one - four - three - two - one' (respecting spaces and pauses)",
+      "incorrecto": "For 1814321: 'One million eight hundred fourteen thousand three hundred twenty-one' or reading without pauses",
+      "nota": "The spaces between numbers represent significant pauses where a vibrational transition occurs. Always respect these spaces by making a small mental or vocal pause."
+    },
+    "metodos_aplicacion": {
+      "metodos_activos": [
+        {
+          "nombre": "Vocal Recitation",
+          "nivel": "All levels",
+          "descripcion": "Pronounce the numbers aloud or mentally, respecting the spaces.",
+          "pasos": [
+            "1. Identify the appropriate sequence for your objective",
+            "2. Read the numbers individually: for example, 741 is pronounced 'seven - four - one', not 'seven hundred forty-one'",
+            "3. Respect the spaces between numbers by making brief pauses",
+            "4. Repeat the sequence between 3 and 45 times, or until you feel it is sufficient",
+            "5. Keep your intention clear in mind while reciting"
+          ]
+        },
+        {
+          "nombre": "Visualization with Light",
+          "nivel": "All levels",
+          "descripcion": "Imagine the numbers shining with white-silver or golden light.",
+          "pasos": [
+            "1. Close your eyes and relax",
+            "2. Visualize the sequence numbers in your mind",
+            "3. Imagine each number shining with intense white-silver or golden light",
+            "4. You can visualize the numbers in three-dimensional form (3D), floating in front of you",
+            "5. Observe how that light expands and envelops your body or the desired situation",
+            "6. Maintain this visualization for 3-10 minutes"
+          ]
+        },
+        {
+          "nombre": "Sphere Method (Piloting)",
+          "nivel": "All levels",
+          "descripcion": "Advanced technique using geometric visualization.",
+          "pasos": [
+            "1. Visualize a sphere of silver or golden light approximately 50 cm in diameter",
+            "2. Place this sphere at the height of your heart, in front of you",
+            "3. Inside the sphere, visualize the numeric sequence shining intensely",
+            "4. Below the numbers, visualize your goal already manifested (image, sensation, or word)",
+            "5. Repeat this visualization 21-28 times in a row",
+            "6. When finished, 'release' the sphere toward infinity with love and gratitude",
+            "7. Trust that your intention is being processed by the universe"
+          ]
+        },
+        {
+          "nombre": "Intensification with Current Date",
+          "nivel": "All levels",
+          "descripcion": "Method to amplify the effectiveness of sequences.",
+          "pasos": [
+            "1. Write the numeric sequence on the first line",
+            "2. Below, write the current date in numeric format (example: 28112025 for November 28, 2025)",
+            "3. Visualize both sequences illuminated simultaneously with bright light",
+            "4. Imagine the light from both merging and directing toward you or your objective",
+            "5. Maintain concentration for several minutes",
+            "6. Update the date each day"
+          ]
+        }
+      ],
+      "metodos_pasivos": [
+        {
+          "nombre": "Writing on Everyday Objects",
+          "nivel": "Complementary",
+          "descripcion": "Place the sequences on objects you use regularly.",
+          "pasos": [
+            "Write on water bottles (water absorbs the vibration)",
+            "Place on adhesive tape over mirrors",
+            "Write on paper and put under the pillow",
+            "Set as wallpaper on phone or computer",
+            "Write on cards and carry in wallet or pocket",
+            "Place on door frames or at work place"
+          ]
+        },
+        {
+          "nombre": "Writing on the Body",
+          "nivel": "Complementary",
+          "descripcion": "Write the sequence directly on the skin.",
+          "pasos": [
+            "With washable marker, write on the left wrist",
+            "Write on the body area that needs healing",
+            "Write on the palm of the non-dominant hand",
+            "Renew daily"
+          ]
+        },
+        {
+          "nombre": "Writing in Journal or Paper",
+          "nivel": "Complementary",
+          "descripcion": "Write the sequences multiple times.",
+          "pasos": [
+            "1. Write the sequence respecting the spaces",
+            "2. Write it between 7 and 49 times (sacred numbers)",
+            "3. While writing, keep your intention in mind",
+            "4. You can also write your objective next to each sequence",
+            "5. Keep the paper in a special place or carry it with you"
+          ]
+        }
+      ]
+    },
+    "recomendaciones": [
+      {
+        "titulo": "Work with One Intention at a Time",
+        "descripcion": "Although you can use multiple sequences, focus mainly on one intention at a time to not disperse your energy. If working with several sequences, organize them by categories and dedicate separate moments to each."
+      },
+      {
+        "titulo": "Respect the Spaces in Sequences",
+        "descripcion": "The spaces between numbers are fundamental. They represent vibrational transitions and significant pauses. Always make a small mental or vocal pause at the spaces when pronouncing or visualizing."
+      },
+      {
+        "titulo": "Consistency and Regularity",
+        "descripcion": "Daily practice is much more effective than intense sporadic sessions. Establish a fixed schedule (preferably morning and/or night) and maintain practice for at least 21-31 consecutive days."
+      },
+      {
+        "titulo": "Combine Active and Passive Methods",
+        "descripcion": "For best results, use both active methods (visualization, recitation) and passive ones (writing on objects, energized water). This creates a continuous field of influence."
+      },
+      {
+        "titulo": "Don't Obsess About the 'How'",
+        "descripcion": "Your job is to concentrate on the 'what' (the desired result), not the 'how' it will manifest. Trust that the universe will find the best path to materialize your intention."
+      },
+      {
+        "titulo": "Complement, Don't Substitute",
+        "descripcion": "Grabovoi sequences are complementary. For health problems, continue with your medical treatment. For material goals, take actions aligned with your intention."
+      },
+      {
+        "titulo": "Keep a Practice Journal",
+        "descripcion": "Record your practices, observations, and results. This will help you identify which methods work best for you and recognize progressive changes."
+      },
+      {
+        "titulo": "Be Patient and Observant",
+        "descripcion": "Results can be immediate (especially with 741) or gradual (healing, rejuvenation). Observe small changes, synchronicities, and subtle improvements. Trust the process."
+      }
+    ]
+  },
+  "secuencias_numericas_organizadas": {
+    "salud_fisica": {
+      "0": {"secuencia": "1814321", "proposito": "General perfect health", "categoria": "salud_fisica", "metodo_aplicacion": "Concentrate on the numbers, visualizing them shining with white-silver light. Pronounce each digit individually respecting the spaces. Keep the intention clear for the desired result.", "fuente": "Book: Healing Numbers", "descripcion": ""},
+      "1": {"secuencia": "1489145", "proposito": "Immune system strengthening", "categoria": "salud_fisica", "metodo_aplicacion": "Concentrate on the numbers, visualizing them shining with white-silver light.", "fuente": "Book: Healing Numbers", "descripcion": ""},
+      "2": {"secuencia": "8143421", "proposito": "Organ regeneration", "categoria": "salud_fisica", "metodo_aplicacion": "Concentrate on the numbers, visualizing them shining with white-silver light.", "fuente": "Book: Healing Numbers", "descripcion": ""},
+      "3": {"secuencia": "5823214", "proposito": "Cardiovascular system normalization", "categoria": "salud_fisica", "metodo_aplicacion": "Concentrate on the numbers, visualizing them shining with white-silver light.", "fuente": "Book: Healing Numbers", "descripcion": ""},
+      "4": {"secuencia": "1823451", "proposito": "Nervous system harmonization", "categoria": "salud_fisica", "metodo_aplicacion": "Concentrate on the numbers, visualizing them shining with white-silver light.", "fuente": "Book: Healing Numbers", "descripcion": ""},
+      "5": {"secuencia": "9187948181", "proposito": "Restoration of damaged organs", "categoria": "salud_fisica", "metodo_aplicacion": "Concentrate on the numbers, visualizing them shining with white-silver light.", "fuente": "Book: Restoration of Human Matter", "descripcion": ""},
+      "6": {"secuencia": "4812888", "proposito": "Immune system strengthening", "categoria": "salud_fisica", "metodo_aplicacion": "Concentrate on the numbers, visualizing them shining with white-silver light.", "fuente": "Book: Restoration of Human Matter", "descripcion": ""},
+      "7": {"secuencia": "8214351", "proposito": "Metabolic normalization", "categoria": "salud_fisica", "metodo_aplicacion": "Concentrate on the numbers, visualizing them shining with white-silver light.", "fuente": "Book: Restoration of Human Matter", "descripcion": ""},
+      "8": {"secuencia": "1888948", "proposito": "Eternal life of the body", "categoria": "salud_fisica", "metodo_aplicacion": "Concentrate on the numbers, visualizing them shining with white-silver light.", "fuente": "Book: Resurrection and Eternal Life", "descripcion": ""},
+      "9": {"secuencia": "4812412", "proposito": "Healthy weight loss", "categoria": "salud_fisica", "metodo_aplicacion": "Concentrate on the numbers, visualizing them shining with white-silver light.", "fuente": "Book: Rejuvenation Program", "descripcion": ""},
+      "10": {"secuencia": "80845700", "proposito": "Good general health", "categoria": "salud_fisica", "metodo_aplicacion": "Concentrate on the numbers, visualizing them shining with white-silver light.", "fuente": "Grabovoi Database", "descripcion": ""},
+      "11": {"secuencia": "4818543", "proposito": "Headache", "categoria": "salud_fisica", "metodo_aplicacion": "Concentrate on the numbers, visualizing them shining with white-silver light.", "fuente": "Grabovoi Database", "descripcion": ""},
+      "12": {"secuencia": "4831421", "proposito": "Migraine", "categoria": "salud_fisica", "metodo_aplicacion": "Concentrate on the numbers, visualizing them shining with white-silver light.", "fuente": "Grabovoi Database", "descripcion": ""},
+      "13": {"secuencia": "8145432", "proposito": "High blood pressure", "categoria": "salud_fisica", "metodo_aplicacion": "Concentrate on the numbers, visualizing them shining with white-silver light.", "fuente": "Grabovoi Database", "descripcion": ""},
+      "14": {"secuencia": "8143546", "proposito": "Low blood pressure", "categoria": "salud_fisica", "metodo_aplicacion": "Concentrate on the numbers, visualizing them shining with white-silver light.", "fuente": "Grabovoi Database", "descripcion": ""},
+      "15": {"secuencia": "8914325", "proposito": "Heart attack", "categoria": "salud_fisica", "metodo_aplicacion": "Concentrate on the numbers, visualizing them shining with white-silver light.", "fuente": "Grabovoi Database", "descripcion": ""},
+      "16": {"secuencia": "8543210", "proposito": "Heart arrhythmia", "categoria": "salud_fisica", "metodo_aplicacion": "Concentrate on the numbers, visualizing them shining with white-silver light.", "fuente": "Grabovoi Database", "descripcion": ""},
+      "17": {"secuencia": "5321482", "proposito": "Digestive system", "categoria": "salud_fisica", "metodo_aplicacion": "Concentrate on the numbers, visualizing them shining with white-silver light.", "fuente": "Grabovoi Database", "descripcion": ""},
+      "18": {"secuencia": "8943548", "proposito": "Bronchial asthma", "categoria": "salud_fisica", "metodo_aplicacion": "Concentrate on the numbers, visualizing them shining with white-silver light.", "fuente": "Grabovoi Database", "descripcion": ""},
+      "19": {"secuencia": "8148888", "proposito": "Rheumatic diseases", "categoria": "salud_fisica", "metodo_aplicacion": "Concentrate on the numbers, visualizing them shining with white-silver light.", "fuente": "Grabovoi Database", "descripcion": ""}
+    },
+    "salud_mental_emocional": {
+      "0": {"secuencia": "5174891948", "proposito": "Anxiety - State of preparation and increased sensory attention", "categoria": "salud_mental_emocional", "metodo_aplicacion": "Use with current date as second row. Illuminate with white-silver light.", "fuente": "Webinar: Olga Toloshnaya", "descripcion": ""},
+      "1": {"secuencia": "49181951749814", "proposito": "Self-esteem - Preparation to decide complex tasks without fear", "categoria": "salud_mental_emocional", "metodo_aplicacion": "Concentrate daily, add current date as second row.", "fuente": "Webinar: Olga Toloshnaya", "descripcion": ""},
+      "2": {"secuencia": "51949131948", "proposito": "Anxiety normalization", "categoria": "salud_mental_emocional", "metodo_aplicacion": "Concentrate on the numbers while maintaining calm intention.", "fuente": "Book: Psychological Normalization", "descripcion": ""},
+      "3": {"secuencia": "489712819 48", "proposito": "Fear liberation", "categoria": "salud_mental_emocional", "metodo_aplicacion": "Concentrate on the numbers while maintaining calm intention.", "fuente": "Book: Psychological Normalization", "descripcion": ""},
+      "4": {"secuencia": "498 81948 81948", "proposito": "Optimism", "categoria": "salud_mental_emocional", "metodo_aplicacion": "Concentrate on the numbers while maintaining calm intention.", "fuente": "Book: Psychological Normalization", "descripcion": ""},
+      "5": {"secuencia": "314821069711", "proposito": "Mutual understanding", "categoria": "salud_mental_emocional", "metodo_aplicacion": "Concentrate on the numbers while maintaining calm intention.", "fuente": "Book: Psychological Normalization", "descripcion": ""},
+      "6": {"secuencia": "5893240", "proposito": "Memory improvement", "categoria": "salud_mental_emocional", "metodo_aplicacion": "Concentrate on the numbers while maintaining calm intention.", "fuente": "Book: Concentration Methods", "descripcion": ""},
+      "7": {"secuencia": "212585212", "proposito": "Concentration in studies", "categoria": "salud_mental_emocional", "metodo_aplicacion": "Concentrate on the numbers while maintaining calm intention.", "fuente": "Book: Concentration Methods", "descripcion": ""}
+    },
+    "abundancia_prosperidad": {
+      "0": {"secuencia": "71427321893", "proposito": "Infinite and eternal prosperity, money attraction", "categoria": "abundancia_prosperidad", "metodo_aplicacion": "Repeat 21 times daily for 31 days. Visualize golden river of abundance.", "fuente": "Grabovoi", "descripcion": ""},
+      "1": {"secuencia": "318798", "proposito": "Financial prosperity", "categoria": "abundancia_prosperidad", "metodo_aplicacion": "Concentrate on the numbers while maintaining clear intention.", "fuente": "Book: Numbers for Successful Business", "descripcion": ""},
+      "2": {"secuencia": "419488", "proposito": "Customer attraction", "categoria": "abundancia_prosperidad", "metodo_aplicacion": "Concentrate on the numbers while maintaining clear intention.", "fuente": "Book: Numbers for Successful Business", "descripcion": ""},
+      "3": {"secuencia": "8888", "proposito": "Abundance in business", "categoria": "abundancia_prosperidad", "metodo_aplicacion": "Concentrate on the numbers while maintaining clear intention.", "fuente": "Book: Numbers for Successful Business", "descripcion": ""},
+      "4": {"secuencia": "175170", "proposito": "Unexpected wealth - 98,016 uses registered", "categoria": "abundancia_prosperidad", "metodo_aplicacion": "Focus on the number, visualize unexpected wealth arriving.", "fuente": "healingnumbers.info", "descripcion": ""},
+      "5": {"secuencia": "520", "proposito": "Miracle attraction", "categoria": "abundancia_prosperidad", "metodo_aplicacion": "Concentrate on the numbers while maintaining clear intention.", "fuente": "Book: Practical Guide", "descripcion": ""},
+      "6": {"secuencia": "888", "proposito": "Infinite abundance and goal materialization", "categoria": "abundancia_prosperidad", "metodo_aplicacion": "Concentrate on the numbers while maintaining clear intention.", "fuente": "Book: Practical Guide", "descripcion": ""}
+    },
+    "relaciones_amor": {
+      "0": {"secuencia": "888 912 818848", "proposito": "Eternal love", "categoria": "relaciones_amor", "metodo_aplicacion": "Concentrate on the numbers while maintaining love intention.", "fuente": "Book: Teachings on God", "descripcion": ""},
+      "1": {"secuencia": "888412 1289018", "proposito": "Divine love", "categoria": "relaciones_amor", "metodo_aplicacion": "Concentrate on the numbers while maintaining love intention.", "fuente": "Book: Teachings on God", "descripcion": ""},
+      "2": {"secuencia": "815498917314", "proposito": "Development of empathy in Creator's Norm", "categoria": "relaciones_amor", "metodo_aplicacion": "Concentrate on the numbers while maintaining love intention.", "fuente": "Book: Teachings on God", "descripcion": ""},
+      "3": {"secuencia": "31649851481", "proposito": "Wolf Constellation - Transform aggression into creativity", "categoria": "relaciones_amor", "metodo_aplicacion": "Visualize constellation as information sphere, place aggressive structure inside.", "fuente": "Webinar: Olga Toloshnaya", "descripcion": ""},
+      "4": {"secuencia": "986115", "proposito": "Attract a specific person - 44,048 uses", "categoria": "relaciones_amor", "metodo_aplicacion": "Clearly visualize the specific person, focus on the number.", "fuente": "healingnumbers.info", "descripcion": ""}
+    },
+    "desarrollo_espiritual": {
+      "0": {"secuencia": "11981", "proposito": "Direct connection with the Creator", "categoria": "desarrollo_espiritual", "metodo_aplicacion": "Concentrate in deep meditation.", "fuente": "Webinar: Solange Muñoz", "descripcion": ""},
+      "1": {"secuencia": "319817318", "proposito": "Salvation and harmonic development", "categoria": "desarrollo_espiritual", "metodo_aplicacion": "Concentrate in deep meditation.", "fuente": "Book: Educational System", "descripcion": ""},
+      "2": {"secuencia": "148721091", "proposito": "Future harmonization", "categoria": "desarrollo_espiritual", "metodo_aplicacion": "Concentrate in deep meditation.", "fuente": "Book: Educational System", "descripcion": ""},
+      "3": {"secuencia": "581478", "proposito": "Soul's akashic records files", "categoria": "desarrollo_espiritual", "metodo_aplicacion": "Use in meditation to access akashic records.", "fuente": "Grabovoi Numbers", "descripcion": ""},
+      "4": {"secuencia": "9999999", "proposito": "Connection with eternity", "categoria": "desarrollo_espiritual", "metodo_aplicacion": "Concentrate in deep meditation.", "fuente": "Book: Resurrection and Eternal Life", "descripcion": ""}
+    },
+    "manifestacion_general": {
+      "0": {"secuencia": "741", "proposito": "Immediate solution - Quick response to situations", "categoria": "manifestacion_general", "metodo_aplicacion": "Short and powerful code for situations requiring immediate solution.", "fuente": "Grabovoi Numbers", "descripcion": ""},
+      "1": {"secuencia": "8898", "proposito": "Materialization - Manifest imagined immediately", "categoria": "manifestacion_general", "metodo_aplicacion": "Use with clear visualization of what you want to materialize.", "fuente": "Grabovoi Numbers", "descripcion": ""},
+      "2": {"secuencia": "82149", "proposito": "Immediate response to situations", "categoria": "manifestacion_general", "metodo_aplicacion": "Concentrate on the numbers while maintaining clear intention.", "fuente": "Book: Practical Guide", "descripcion": ""},
+      "3": {"secuencia": "889", "proposito": "Materialize plans and thoughts", "categoria": "manifestacion_general", "metodo_aplicacion": "Concentrate on the numbers while maintaining clear intention.", "fuente": "Webinar: Solange Muñoz", "descripcion": ""},
+      "4": {"secuencia": "71042", "proposito": "Harmonize the present", "categoria": "manifestacion_general", "metodo_aplicacion": "Practice every morning upon waking.", "fuente": "Webinar: Solange Muñoz", "descripcion": ""}
+    },
+    "rejuvenecimiento_belleza": {
+      "0": {"secuencia": "2145432", "proposito": "General rejuvenation", "categoria": "rejuvenecimiento_belleza", "metodo_aplicacion": "Visualize yourself at age 24. Repeat 28 times sending love to each cell.", "fuente": "Book: Rejuvenation Program", "descripcion": ""},
+      "1": {"secuencia": "1893613", "proposito": "Beauty and physical harmony", "categoria": "rejuvenecimiento_belleza", "metodo_aplicacion": "Concentrate on the numbers while maintaining clear intention.", "fuente": "Book: Rejuvenation Program", "descripcion": ""},
+      "2": {"secuencia": "1891014", "proposito": "Energy and vitality increase", "categoria": "rejuvenecimiento_belleza", "metodo_aplicacion": "Concentrate on the numbers while maintaining clear intention.", "fuente": "Book: Rejuvenation Program", "descripcion": ""},
+      "3": {"secuencia": "498716988079", "proposito": "General vitality", "categoria": "rejuvenecimiento_belleza", "metodo_aplicacion": "Concentrate on the numbers while maintaining clear intention.", "fuente": "Book: Rejuvenation Program", "descripcion": ""},
+      "4": {"secuencia": "148543293", "proposito": "Cellular rejuvenation", "categoria": "rejuvenecimiento_belleza", "metodo_aplicacion": "Concentrate on the numbers while maintaining clear intention.", "fuente": "Book: Healing Numbers", "descripcion": ""}
+    },
+    "proteccion_armonizacion": {
+      "0": {"secuencia": "991", "proposito": "Clean evil eye influences", "categoria": "proteccion_armonizacion", "metodo_aplicacion": "Concentrate on the numbers while maintaining protection intention.", "fuente": "Golden Codes of Shambhala", "descripcion": ""},
+      "1": {"secuencia": "1313", "proposito": "Good luck and synchronicity", "categoria": "proteccion_armonizacion", "metodo_aplicacion": "Concentrate on the numbers while maintaining protection intention.", "fuente": "Golden Codes of Shambhala", "descripcion": ""},
+      "2": {"secuencia": "44", "proposito": "Manifestation", "categoria": "proteccion_armonizacion", "metodo_aplicacion": "Concentrate on the numbers while maintaining protection intention.", "fuente": "Golden Codes of Shambhala", "descripcion": ""},
+      "3": {"secuencia": "77", "proposito": "Sacred energies", "categoria": "proteccion_armonizacion", "metodo_aplicacion": "Concentrate on the numbers while maintaining protection intention.", "fuente": "Golden Codes of Shambhala", "descripcion": ""},
+      "4": {"secuencia": "7777", "proposito": "Rain of love", "categoria": "proteccion_armonizacion", "metodo_aplicacion": "Concentrate on the numbers while maintaining protection intention.", "fuente": "Golden Codes of Shambhala", "descripcion": ""},
+      "5": {"secuencia": "333", "proposito": "Joy", "categoria": "proteccion_armonizacion", "metodo_aplicacion": "Concentrate on the numbers while maintaining protection intention.", "fuente": "Golden Codes of Shambhala", "descripcion": ""}
+    }
+  },
+  "dispositivo_prk1u": {
+    "nombre_completo": "PRK-1U - Device for Development of Concentrations",
+    "descripcion_general": "The PRK-1U is a revolutionary technological device developed by Dr. Grigori Grabovoi, based on his registered scientific patents. It is a unique tool in the world designed to amplify the user's mental concentrations, facilitating conscious control of events, health restoration, development of clairvoyance and controlled prognosis, with the ultimate goal of achieving eternal life and harmonious development.",
+    "acceso_adquisicion": {
+      "prk1u_fisico": {
+        "metodo": "Sublicense for 4 years",
+        "costo_aproximado": "€10,700 + VAT + security deposit ≈ €11,050",
+        "incluye": [
+          "Physical device",
+          "Remote online access",
+          "Grabovoi educational resources",
+          "Technical support"
+        ],
+        "requisito": "Immersive Experience (trial session) mandatory before acquiring",
+        "contacto": "www.prk-1u.com"
+      },
+      "prk1u_online": {
+        "metodo": "Remote access via IVIDEON platform",
+        "costo": "Varies by modality - Free medical devices available",
+        "incluye": [
+          "Remote access to physical device",
+          "Scheduling system",
+          "Documentation and guides"
+        ],
+        "contacto": "www.prk-1u.com"
+      }
+    }
+  }
+}
+
