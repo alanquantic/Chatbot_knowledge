@@ -1,5 +1,3 @@
-import { readFile } from 'node:fs/promises'
-import path from 'node:path'
 import { z } from 'zod'
 
 export type KnowledgeDocId =
@@ -59,12 +57,12 @@ export type KnowledgeRetrievalInput = {
   maxTotalChars: number
 }
 
-type ReadPaths = {
-  grabovoiDbPath: string
-  guiaPrkPath: string
-  guiaRapidaPath: string
-  indiceRapidoPath: string
-  listaSecuenciasPath: string
+type KnowledgePublicPaths = {
+  grabovoiDb: string
+  guiaPrk: string
+  guiaRapida: string
+  indiceRapido: string
+  listaSecuencias: string
 }
 
 function normalizeText(input: string): string {
@@ -135,21 +133,37 @@ function parseMarkdownSections(markdown: string): MarkdownSection[] {
   return sections
 }
 
-async function readUtf8File(filePath: string): Promise<string> {
-  const buffer = await readFile(filePath)
-  return buffer.toString('utf8')
+async function fetchUtf8(baseUrl: string, relativePath: string): Promise<string> {
+  const url = new URL(relativePath, baseUrl)
+  const res = await fetch(url, { cache: 'no-store' })
+  if (!res.ok) {
+    const text = await res.text().catch(() => '')
+    throw new Error(`No se pudo cargar ${relativePath}: HTTP ${res.status} ${text}`)
+  }
+  return await res.text()
 }
 
-async function loadDocs(paths: ReadPaths): Promise<{
+function getDefaultPublicPaths(): KnowledgePublicPaths {
+  return {
+    grabovoiDb: '/data/grabovoi_database.json',
+    guiaPrk: '/data/GUIA_COMPLETA_PRK1U.md',
+    guiaRapida: '/data/GUIA_RAPIDA_GRABOVOI.md',
+    indiceRapido: '/data/INDICE_RAPIDO_POR_NECESIDAD.md',
+    listaSecuencias: '/data/LISTA_COMPLETA_SECUENCIAS.md',
+  }
+}
+
+async function loadDocsFromPublic(baseUrl: string): Promise<{
   db: GrabovoiDb
   md: Record<Exclude<KnowledgeDocId, 'grabovoi_database.json'>, string>
 }> {
+  const p = getDefaultPublicPaths()
   const [dbRaw, guiaPrk, guiaRapida, indiceRapido, listaSecuencias] = await Promise.all([
-    readUtf8File(paths.grabovoiDbPath),
-    readUtf8File(paths.guiaPrkPath),
-    readUtf8File(paths.guiaRapidaPath),
-    readUtf8File(paths.indiceRapidoPath),
-    readUtf8File(paths.listaSecuenciasPath),
+    fetchUtf8(baseUrl, p.grabovoiDb),
+    fetchUtf8(baseUrl, p.guiaPrk),
+    fetchUtf8(baseUrl, p.guiaRapida),
+    fetchUtf8(baseUrl, p.indiceRapido),
+    fetchUtf8(baseUrl, p.listaSecuencias),
   ])
 
   const dbJsonUnknown: unknown = JSON.parse(dbRaw)
@@ -276,10 +290,10 @@ function buildMarkdownSnippets(
 
 export async function retrieveKnowledgeContext(
   input: KnowledgeRetrievalInput,
-  explicitPaths: ReadPaths
+  baseUrl: string
 ): Promise<KnowledgeSnippet[]> {
   const { question, maxSnippets, maxCharsPerSnippet, maxTotalChars } = input
-  const docs = await loadDocs(explicitPaths)
+  const docs = await loadDocsFromPublic(baseUrl)
 
   const dbSnippets = buildBookSnippets(docs.db, question)
   const mdSnippets = (
@@ -305,16 +319,4 @@ export async function retrieveKnowledgeContext(
 
   return selected
 }
-
-export function buildDefaultKnowledgePaths(projectRoot: string): ReadPaths {
-  const dataDir = path.join(projectRoot, 'public', 'data')
-  return {
-    grabovoiDbPath: path.join(dataDir, 'grabovoi_database.json'),
-    guiaPrkPath: path.join(dataDir, 'GUIA_COMPLETA_PRK1U.md'),
-    guiaRapidaPath: path.join(dataDir, 'GUIA_RAPIDA_GRABOVOI.md'),
-    indiceRapidoPath: path.join(dataDir, 'INDICE_RAPIDO_POR_NECESIDAD.md'),
-    listaSecuenciasPath: path.join(dataDir, 'LISTA_COMPLETA_SECUENCIAS.md'),
-  }
-}
-
 

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
-import { buildDefaultKnowledgePaths, retrieveKnowledgeContext } from '@/lib/knowledge-retrieval'
+import { retrieveKnowledgeContext } from '@/lib/knowledge-retrieval'
 
 export const dynamic = 'force-dynamic'
 
@@ -77,7 +77,7 @@ export async function POST(req: NextRequest) {
 
   const lastUserMessage = [...body.messages].reverse().find((m) => m.role === 'user')?.content
   const question = typeof lastUserMessage === 'string' ? lastUserMessage : ''
-  const paths = buildDefaultKnowledgePaths(process.cwd())
+  const baseUrl = req.nextUrl.origin
 
   let knowledgeSnippetsText = ''
   try {
@@ -88,7 +88,7 @@ export async function POST(req: NextRequest) {
         maxCharsPerSnippet: 900,
         maxTotalChars: 3200,
       },
-      paths
+      baseUrl
     )
 
     if (snippets.length > 0) {
