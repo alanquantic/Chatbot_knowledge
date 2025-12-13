@@ -299,3 +299,37 @@
     transform: translateY(-20px);
   }
 }
+
+/* ========================================
+   Chatbot HTML (salida del modelo)
+   Estilos básicos y seguros (sin typography plugin)
+   ======================================== */
+
+.chatbot-html {
+  line-height: 1.45;
+}
+
+.chatbot-html p {
+  margin: 0;
+}
+
+.chatbot-html p + p {
+  margin-top: 0.5rem;
+}
+
+.chatbot-html ul,
+.chatbot-html ol {
+  margin: 0.5rem 0 0 1.125rem;
+  padding: 0;
+}
+
+.chatbot-html li {
+  margin: 0.25rem 0;
+}
+
+.chatbot-html blockquote {
+  margin: 0.5rem 0 0;
+  padding-left: 0.75rem;
+  border-left: 3px solid rgba(139, 92, 246, 0.5);
+  opacity: 0.95;
+}

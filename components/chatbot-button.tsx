@@ -5,6 +5,7 @@ import { Loader2, MessageCircle, Send, X } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { useTranslations } from 'next-intl';
+import { sanitizeChatbotHtml } from '@/lib/sanitize-chatbot-html';
 
 export function ChatbotButton() {
   const t = useTranslations('chatbot');
@@ -12,6 +13,11 @@ export function ChatbotButton() {
   const [input, setInput] = useState<string>('');
   const [isSending, setIsSending] = useState<boolean>(false);
   const endRef = useRef<HTMLDivElement | null>(null);
+
+  // Feature flag (build-time): si en Vercel pones NEXT_PUBLIC_CHATBOT_OUTPUT_FORMAT=text,
+  // el UI vuelve a texto plano sin necesidad de revertir código.
+  const outputFormat =
+    (process.env.NEXT_PUBLIC_CHATBOT_OUTPUT_FORMAT ?? 'html').toLowerCase() === 'text' ? 'text' : 'html';
 
   type ChatRole = 'user' | 'assistant';
   type ChatMessage = {
@@ -138,13 +144,20 @@ export function ChatbotButton() {
                 >
                   <div
                     className={[
-                      'max-w-[85%] rounded-2xl px-4 py-2 text-sm whitespace-pre-wrap',
+                      'max-w-[85%] rounded-2xl px-4 py-2 text-sm',
                       m.role === 'user'
                         ? 'bg-purple-600 text-white'
                         : 'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100',
                     ].join(' ')}
                   >
-                    {m.content}
+                    {outputFormat === 'html' && m.role === 'assistant' ? (
+                      <div
+                        className="chatbot-html"
+                        dangerouslySetInnerHTML={{ __html: sanitizeChatbotHtml(m.content) }}
+                      />
+                    ) : (
+                      <span className="whitespace-pre-wrap">{m.content}</span>
+                    )}
                   </div>
                 </div>
               ))}
