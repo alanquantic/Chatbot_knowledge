@@ -60,6 +60,7 @@ type ChatRequest = z.infer<typeof chatRequestSchema>
 
 export async function POST(req: NextRequest) {
   try {
+    console.log('[api/chat] request received')
     const openAiApiKey = process.env.OPENAI_API_KEY
     if (!openAiApiKey) {
       console.error('[api/chat] Falta OPENAI_API_KEY en el entorno.')
@@ -84,6 +85,7 @@ export async function POST(req: NextRequest) {
     const lastUserMessage = [...body.messages].reverse().find((m) => m.role === 'user')?.content
     const question = typeof lastUserMessage === 'string' ? lastUserMessage : ''
     const baseUrl = req.nextUrl.origin
+    console.log('[api/chat] preparing context', { questionChars: question.length })
 
     // Feature flag: permite cambiar formato sin tocar código (ideal para revertir en Vercel).
     // - html: el modelo devuelve HTML básico (se renderiza en el cliente con sanitización)
@@ -139,6 +141,7 @@ export async function POST(req: NextRequest) {
 
     let response: Response
     try {
+      console.log('[api/chat] calling OpenAI')
       response = await fetch('https://api.openai.com/v1/chat/completions', {
         method: 'POST',
         headers: {

@@ -13,11 +13,7 @@ export function ChatbotButton() {
   const [input, setInput] = useState<string>('');
   const [isSending, setIsSending] = useState<boolean>(false);
   const endRef = useRef<HTMLDivElement | null>(null);
-
-  // Feature flag (build-time): si en Vercel pones NEXT_PUBLIC_CHATBOT_OUTPUT_FORMAT=text,
-  // el UI vuelve a texto plano sin necesidad de revertir código.
-  const outputFormat =
-    (process.env.NEXT_PUBLIC_CHATBOT_OUTPUT_FORMAT ?? 'html').toLowerCase() === 'text' ? 'text' : 'html';
+  const [outputFormat, setOutputFormat] = useState<'html' | 'text'>('html');
 
   type ChatRole = 'user' | 'assistant';
   type ChatMessage = {
@@ -52,10 +48,8 @@ export function ChatbotButton() {
     setIsSending(true);
     setInput('');
 
-    const nextMessages: ChatMessage[] = [
-      ...messages,
-      { role: 'user', content: trimmed },
-    ];
+    // Usar update funcional para evitar closures “stale”
+    const nextMessages: ChatMessage[] = [...messages, { role: 'user', content: trimmed }];
     setMessages(nextMessages);
 
     try {
@@ -83,9 +77,13 @@ export function ChatbotButton() {
       }
 
       const data: unknown = await res.json();
-      const message = (data as { message?: string }).message;
+      const payload = data as { message?: string; format?: string };
+      const message = payload.message;
       if (!message) {
         throw new Error(t('invalidResponse'));
+      }
+      if (payload.format === 'text' || payload.format === 'html') {
+        setOutputFormat(payload.format);
       }
 
       setMessages([...nextMessages, { role: 'assistant', content: message }]);
