@@ -142,7 +142,12 @@ export async function POST(req: NextRequest) {
     let response: Response
     try {
       console.log('[api/chat] calling OpenAI')
-      response = await fetch('https://api.openai.com/v1/chat/completions', {
+      const controller = new AbortController()
+      const timeoutMs = Number(process.env.OPENAI_TIMEOUT_MS ?? 25000)
+      const timeout = setTimeout(() => controller.abort(), Number.isFinite(timeoutMs) ? timeoutMs : 25000)
+
+      try {
+        response = await fetch('https://api.openai.com/v1/chat/completions', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -153,22 +158,36 @@ export async function POST(req: NextRequest) {
           messages: messagesWithContext,
           max_completion_tokens: 2000,
         }),
-      })
+        signal: controller.signal,
+        })
+      } finally {
+        clearTimeout(timeout)
+      }
     } catch (err) {
       const message = err instanceof Error ? err.message : String(err)
-      console.error('[api/chat] Error llamando a OpenAI (fetch falló):', message)
+      const aborted =
+        err instanceof Error && (err.name === 'AbortError' || message.toLowerCase().includes('aborted'))
+      console.error(
+        `[api/chat] Error llamando a OpenAI (fetch falló${aborted ? ' por timeout' : ''}):`,
+        message
+      )
       return NextResponse.json(
         {
-          error: 'No se pudo contactar al proveedor de IA (OpenAI).',
-          hint: 'Verifica conectividad saliente en Vercel y que OPENAI_API_KEY sea válida.',
-          details: { stage: 'fetch_openai', message },
+          error: aborted
+            ? 'Timeout llamando al proveedor de IA (OpenAI).'
+            : 'No se pudo contactar al proveedor de IA (OpenAI).',
+          hint:
+            'Verifica conectividad saliente/Firewall en Vercel, y que OPENAI_API_KEY sea válida. Si usas Deployment Protection, no afecta a OpenAI, pero reglas de egress sí pueden bloquear.',
+          details: { stage: aborted ? 'fetch_openai_timeout' : 'fetch_openai', message },
         },
-        { status: 502 }
+        { status: aborted ? 504 : 502 }
       )
     }
 
+    console.log('[api/chat] OpenAI responded', { status: response.status, ok: response.ok })
   if (!response.ok) {
-    const text = await response.text()
+      const text = await response.text().catch(() => '')
+      console.error('[api/chat] OpenAI error body (truncated):', text.slice(0, 1200))
     return NextResponse.json(
       { error: `OpenAI API error: ${response.status} ${text}` },
       { status: 502 }
