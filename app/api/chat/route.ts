@@ -59,94 +59,110 @@ const chatRequestSchema = z.object({
 type ChatRequest = z.infer<typeof chatRequestSchema>
 
 export async function POST(req: NextRequest) {
-  const openAiApiKey = process.env.OPENAI_API_KEY
-  if (!openAiApiKey) {
-    console.error('[api/chat] Falta OPENAI_API_KEY en el entorno.')
-    return NextResponse.json(
-      {
-        error: 'OPENAI_API_KEY no está configurada en el servidor',
-        hint: 'Configura OPENAI_API_KEY en Vercel (Preview y Production) y vuelve a desplegar.',
-      },
-      { status: 503 }
-    )
-  }
-
-  let body: ChatRequest
   try {
-    const rawBody: unknown = await req.json()
-    body = chatRequestSchema.parse(rawBody)
-  } catch (err) {
-    const message = err instanceof Error ? err.message : 'Invalid request body'
-    return NextResponse.json({ error: message }, { status: 400 })
-  }
-
-  const lastUserMessage = [...body.messages].reverse().find((m) => m.role === 'user')?.content
-  const question = typeof lastUserMessage === 'string' ? lastUserMessage : ''
-  const baseUrl = req.nextUrl.origin
-
-  // Feature flag: permite cambiar formato sin tocar código (ideal para revertir en Vercel).
-  // - html: el modelo devuelve HTML básico (se renderiza en el cliente con sanitización)
-  // - text: comportamiento clásico (texto plano)
-  const outputFormat = (process.env.CHATBOT_OUTPUT_FORMAT ?? 'html').toLowerCase() === 'text' ? 'text' : 'html'
-
-  let knowledgeSnippetsText = ''
-  try {
-    const snippets = await retrieveKnowledgeContext(
-      {
-        question,
-        maxSnippets: 5,
-        maxCharsPerSnippet: 900,
-        maxTotalChars: 3200,
-      },
-      baseUrl
-    )
-
-    if (snippets.length > 0) {
-      knowledgeSnippetsText = snippets
-        .map((s) => `Fuente: ${s.source}\nSección: ${s.title}\n${s.content}`)
-        .join('\n\n---\n\n')
-        .trim()
+    const openAiApiKey = process.env.OPENAI_API_KEY
+    if (!openAiApiKey) {
+      console.error('[api/chat] Falta OPENAI_API_KEY en el entorno.')
+      return NextResponse.json(
+        {
+          error: 'OPENAI_API_KEY no está configurada en el servidor',
+          hint: 'Configura OPENAI_API_KEY en Vercel (Preview y Production) y vuelve a desplegar.',
+        },
+        { status: 503 }
+      )
     }
-  } catch (err) {
-    // No tumbar el chatbot si falla el contexto: seguir sin RAG.
-    const message = err instanceof Error ? err.message : 'Error cargando base de conocimiento'
-    console.error('[api/chat] Error cargando contexto. Continuando sin CONTEXTO.', message)
-    knowledgeSnippetsText = ''
-  }
 
-  const knowledgeSystemMessage = {
-    role: 'system' as const,
-    content: [
-      'Eres el Asistente Grabovoi. Responde en español y con tono práctico.',
-      'Usa el CONTEXTO proporcionado abajo como fuente principal para secuencias, métodos, rutinas y PRK-1U.',
-      'Si el contexto no contiene la respuesta específica, dilo explícitamente y pide una aclaración; no inventes secuencias.',
-      outputFormat === 'html'
-        ? [
-            'FORMATO DE SALIDA: Devuelve SOLO HTML básico (sin Markdown, sin bloques de código).',
-            'Etiquetas permitidas: <p>, <br>, <ul>, <ol>, <li>, <strong>, <em>, <blockquote>.',
-            'No uses atributos (sin style, sin class, sin onclick, etc.).',
-            'Incluye emojis con moderación (1-3 por respuesta) para hacerla más amigable.',
-            'Hazla un poco más desarrollada: 2-4 párrafos y, cuando aplique, una lista de pasos.',
-          ].join('\n')
-        : 'FORMATO DE SALIDA: Texto plano (sin Markdown). Da una respuesta clara y un poco más desarrollada.',
-      knowledgeSnippetsText.length > 0 ? `\nCONTEXTO:\n${knowledgeSnippetsText}` : '\nCONTEXTO: (vacío)',
-    ].join('\n'),
-  }
+    let body: ChatRequest
+    try {
+      const rawBody: unknown = await req.json()
+      body = chatRequestSchema.parse(rawBody)
+    } catch (err) {
+      const message = err instanceof Error ? err.message : 'Invalid request body'
+      return NextResponse.json({ error: message }, { status: 400 })
+    }
 
-  const messagesWithContext = [knowledgeSystemMessage, ...body.messages]
+    const lastUserMessage = [...body.messages].reverse().find((m) => m.role === 'user')?.content
+    const question = typeof lastUserMessage === 'string' ? lastUserMessage : ''
+    const baseUrl = req.nextUrl.origin
 
-  const response = await fetch('https://api.openai.com/v1/chat/completions', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${openAiApiKey}`,
-    },
-    body: JSON.stringify({
-      model: 'gpt-5-mini',
-      messages: messagesWithContext,
-      max_completion_tokens: 2000,
-    }),
-  })
+    // Feature flag: permite cambiar formato sin tocar código (ideal para revertir en Vercel).
+    // - html: el modelo devuelve HTML básico (se renderiza en el cliente con sanitización)
+    // - text: comportamiento clásico (texto plano)
+    const outputFormat =
+      (process.env.CHATBOT_OUTPUT_FORMAT ?? 'html').toLowerCase() === 'text' ? 'text' : 'html'
+
+    let knowledgeSnippetsText = ''
+    try {
+      const snippets = await retrieveKnowledgeContext(
+        {
+          question,
+          maxSnippets: 5,
+          maxCharsPerSnippet: 900,
+          maxTotalChars: 3200,
+        },
+        baseUrl
+      )
+
+      if (snippets.length > 0) {
+        knowledgeSnippetsText = snippets
+          .map((s) => `Fuente: ${s.source}\nSección: ${s.title}\n${s.content}`)
+          .join('\n\n---\n\n')
+          .trim()
+      }
+    } catch (err) {
+      // No tumbar el chatbot si falla el contexto: seguir sin RAG.
+      const message = err instanceof Error ? err.message : 'Error cargando base de conocimiento'
+      console.error('[api/chat] Error cargando contexto. Continuando sin CONTEXTO.', message)
+      knowledgeSnippetsText = ''
+    }
+
+    const knowledgeSystemMessage = {
+      role: 'system' as const,
+      content: [
+        'Eres el Asistente Grabovoi. Responde en español y con tono práctico.',
+        'Usa el CONTEXTO proporcionado abajo como fuente principal para secuencias, métodos, rutinas y PRK-1U.',
+        'Si el contexto no contiene la respuesta específica, dilo explícitamente y pide una aclaración; no inventes secuencias.',
+        outputFormat === 'html'
+          ? [
+              'FORMATO DE SALIDA: Devuelve SOLO HTML básico (sin Markdown, sin bloques de código).',
+              'Etiquetas permitidas: <p>, <br>, <ul>, <ol>, <li>, <strong>, <em>, <blockquote>.',
+              'No uses atributos (sin style, sin class, sin onclick, etc.).',
+              'Incluye emojis con moderación (1-3 por respuesta) para hacerla más amigable.',
+              'Hazla un poco más desarrollada: 2-4 párrafos y, cuando aplique, una lista de pasos.',
+            ].join('\n')
+          : 'FORMATO DE SALIDA: Texto plano (sin Markdown). Da una respuesta clara y un poco más desarrollada.',
+        knowledgeSnippetsText.length > 0 ? `\nCONTEXTO:\n${knowledgeSnippetsText}` : '\nCONTEXTO: (vacío)',
+      ].join('\n'),
+    }
+
+    const messagesWithContext = [knowledgeSystemMessage, ...body.messages]
+
+    let response: Response
+    try {
+      response = await fetch('https://api.openai.com/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${openAiApiKey}`,
+        },
+        body: JSON.stringify({
+          model: 'gpt-5-mini',
+          messages: messagesWithContext,
+          max_completion_tokens: 2000,
+        }),
+      })
+    } catch (err) {
+      const message = err instanceof Error ? err.message : String(err)
+      console.error('[api/chat] Error llamando a OpenAI (fetch falló):', message)
+      return NextResponse.json(
+        {
+          error: 'No se pudo contactar al proveedor de IA (OpenAI).',
+          hint: 'Verifica conectividad saliente en Vercel y que OPENAI_API_KEY sea válida.',
+          details: { stage: 'fetch_openai', message },
+        },
+        { status: 502 }
+      )
+    }
 
   if (!response.ok) {
     const text = await response.text()
@@ -156,7 +172,20 @@ export async function POST(req: NextRequest) {
     )
   }
 
-  const data: unknown = await response.json()
+    let data: unknown
+    try {
+      data = await response.json()
+    } catch (err) {
+      const message = err instanceof Error ? err.message : String(err)
+      console.error('[api/chat] Error parseando JSON de OpenAI:', message)
+      return NextResponse.json(
+        {
+          error: 'Respuesta inválida del proveedor de IA (JSON no parseable).',
+          details: { stage: 'parse_openai_json', message },
+        },
+        { status: 502 }
+      )
+    }
   const parsed = z
     .object({
       model: z.string().optional(),
@@ -219,7 +248,19 @@ export async function POST(req: NextRequest) {
     )
   }
 
-  return NextResponse.json({ message: content, format: outputFormat })
+    return NextResponse.json({ message: content, format: outputFormat })
+  } catch (err) {
+    const message = err instanceof Error ? err.message : String(err)
+    console.error('[api/chat] Error inesperado:', message)
+    return NextResponse.json(
+      {
+        error: 'Error interno inesperado en /api/chat',
+        hint: 'Revisa logs de la Function y vuelve a intentar.',
+        details: { stage: 'unexpected', message },
+      },
+      { status: 500 }
+    )
+  }
 }
 
 
