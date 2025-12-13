@@ -61,9 +61,13 @@ type ChatRequest = z.infer<typeof chatRequestSchema>
 export async function POST(req: NextRequest) {
   const openAiApiKey = process.env.OPENAI_API_KEY
   if (!openAiApiKey) {
+    console.error('[api/chat] Falta OPENAI_API_KEY en el entorno.')
     return NextResponse.json(
-      { error: 'OPENAI_API_KEY no está configurada en el servidor' },
-      { status: 500 }
+      {
+        error: 'OPENAI_API_KEY no está configurada en el servidor',
+        hint: 'Configura OPENAI_API_KEY en Vercel (Preview y Production) y vuelve a desplegar.',
+      },
+      { status: 503 }
     )
   }
 
@@ -104,11 +108,10 @@ export async function POST(req: NextRequest) {
         .trim()
     }
   } catch (err) {
+    // No tumbar el chatbot si falla el contexto: seguir sin RAG.
     const message = err instanceof Error ? err.message : 'Error cargando base de conocimiento'
-    return NextResponse.json(
-      { error: `Base de conocimiento inválida o inaccesible: ${message}` },
-      { status: 500 }
-    )
+    console.error('[api/chat] Error cargando contexto. Continuando sin CONTEXTO.', message)
+    knowledgeSnippetsText = ''
   }
 
   const knowledgeSystemMessage = {

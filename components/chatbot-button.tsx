@@ -71,8 +71,15 @@ export function ChatbotButton() {
       });
 
       if (!res.ok) {
+        // Intentar extraer un error legible (JSON o texto)
         const raw = await res.text();
-        throw new Error(raw || `HTTP ${res.status}`);
+        try {
+          const parsed = JSON.parse(raw) as { error?: string; hint?: string }
+          const msg = [parsed.error, parsed.hint].filter(Boolean).join(' — ')
+          throw new Error(msg || raw || `HTTP ${res.status}`)
+        } catch {
+          throw new Error(raw || `HTTP ${res.status}`)
+        }
       }
 
       const data: unknown = await res.json();
