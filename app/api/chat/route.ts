@@ -47,7 +47,8 @@ function describeContentShape(rawContent: unknown): { kind: string; keys?: strin
 }
 
 const chatMessageSchema = z.object({
-  role: z.enum(['system', 'user', 'assistant']),
+  // Seguridad: el cliente NO debe poder enviar mensajes system (evita prompt injection).
+  role: z.enum(['user', 'assistant']),
   content: z.string().min(1),
 })
 
@@ -78,6 +79,11 @@ export async function POST(req: NextRequest) {
   const lastUserMessage = [...body.messages].reverse().find((m) => m.role === 'user')?.content
   const question = typeof lastUserMessage === 'string' ? lastUserMessage : ''
   const baseUrl = req.nextUrl.origin
+
+  // Feature flag: permite cambiar formato sin tocar código (ideal para revertir en Vercel).
+  // - html: el modelo devuelve HTML básico (se renderiza en el cliente con sanitización)
+  // - text: comportamiento clásico (texto plano)
+  const outputFormat = (process.env.CHATBOT_OUTPUT_FORMAT ?? 'html').toLowerCase() === 'text' ? 'text' : 'html'
 
   let knowledgeSnippetsText = ''
   try {
@@ -111,7 +117,15 @@ export async function POST(req: NextRequest) {
       'Eres el Asistente Grabovoi. Responde en español y con tono práctico.',
       'Usa el CONTEXTO proporcionado abajo como fuente principal para secuencias, métodos, rutinas y PRK-1U.',
       'Si el contexto no contiene la respuesta específica, dilo explícitamente y pide una aclaración; no inventes secuencias.',
-      'Mantén la respuesta concisa.',
+      outputFormat === 'html'
+        ? [
+            'FORMATO DE SALIDA: Devuelve SOLO HTML básico (sin Markdown, sin bloques de código).',
+            'Etiquetas permitidas: <p>, <br>, <ul>, <ol>, <li>, <strong>, <em>, <blockquote>.',
+            'No uses atributos (sin style, sin class, sin onclick, etc.).',
+            'Incluye emojis con moderación (1-3 por respuesta) para hacerla más amigable.',
+            'Hazla un poco más desarrollada: 2-4 párrafos y, cuando aplique, una lista de pasos.',
+          ].join('\n')
+        : 'FORMATO DE SALIDA: Texto plano (sin Markdown). Da una respuesta clara y un poco más desarrollada.',
       knowledgeSnippetsText.length > 0 ? `\nCONTEXTO:\n${knowledgeSnippetsText}` : '\nCONTEXTO: (vacío)',
     ].join('\n'),
   }
@@ -202,7 +216,7 @@ export async function POST(req: NextRequest) {
     )
   }
 
-  return NextResponse.json({ message: content })
+  return NextResponse.json({ message: content, format: outputFormat })
 }
 
 
