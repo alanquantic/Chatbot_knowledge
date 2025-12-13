@@ -24,7 +24,8 @@ export function sanitizeChatbotHtml(input: string): string {
   if (raw.length === 0) return ''
   if (!isBrowser() || typeof DOMParser === 'undefined') {
     // Fallback ultra conservador: no renderizar HTML si no hay DOM.
-    return raw.replaceAll('<', '&lt;').replaceAll('>', '&gt;')
+    // (Evitar String.prototype.replaceAll para compatibilidad con lib/targets más antiguos)
+    return raw.replace(/</g, '&lt;').replace(/>/g, '&gt;')
   }
 
   const parser = new DOMParser()
