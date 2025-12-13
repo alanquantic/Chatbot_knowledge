@@ -34,7 +34,9 @@ export function sanitizeChatbotHtml(input: string): string {
 
   const walker = doc.createTreeWalker(body, NodeFilter.SHOW_ELEMENT)
   const toProcess: Element[] = []
-  let current = walker.currentNode as Element | null
+  // Importante: NO procesar el <body> como un nodo más; si lo "desenvolvemos"
+  // movemos sus hijos fuera y `body.innerHTML` queda vacío (y no se renderiza nada).
+  let current = walker.nextNode() as Element | null
   while (current) {
     toProcess.push(current)
     current = walker.nextNode() as Element | null
