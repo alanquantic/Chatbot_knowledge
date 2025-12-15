@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
 import { retrieveKnowledgeContext } from '@/lib/knowledge-retrieval'
+import { CHATBOT_SYSTEM_PROMPT } from '@/lib/chatbot-system-prompt'
 
 export const dynamic = 'force-dynamic'
 
@@ -108,12 +109,9 @@ export async function POST(req: NextRequest) {
   const knowledgeSystemMessage = {
     role: 'system' as const,
     content: [
-      'Eres el Asistente Grabovoi. Responde en español y con tono práctico.',
-      'Usa el CONTEXTO proporcionado abajo como fuente principal para secuencias, métodos, rutinas y PRK-1U.',
-      'Si el contexto no contiene la respuesta específica, dilo explícitamente y pide una aclaración; no inventes secuencias.',
-      'Mantén la respuesta concisa.',
-      knowledgeSnippetsText.length > 0 ? `\nCONTEXTO:\n${knowledgeSnippetsText}` : '\nCONTEXTO: (vacío)',
-    ].join('\n'),
+      CHATBOT_SYSTEM_PROMPT,
+      knowledgeSnippetsText.length > 0 ? `\nCONTEXTO DE REFERENCIA:\n${knowledgeSnippetsText}` : '',
+    ].filter(Boolean).join('\n'),
   }
 
   const messagesWithContext = [knowledgeSystemMessage, ...body.messages]
@@ -125,7 +123,7 @@ export async function POST(req: NextRequest) {
       Authorization: `Bearer ${openAiApiKey}`,
     },
     body: JSON.stringify({
-      model: 'gpt-5-mini',
+      model: 'gpt-5.2',
       messages: messagesWithContext,
       max_completion_tokens: 2000,
     }),
