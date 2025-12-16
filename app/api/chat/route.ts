@@ -122,20 +122,16 @@ export async function POST(req: NextRequest) {
     const knowledgeSystemMessage = {
       role: 'system' as const,
       content: [
-        'Eres el Asistente Grabovoi. Responde en español y con tono práctico.',
-        'Usa el CONTEXTO proporcionado abajo como fuente principal para secuencias, métodos, rutinas y PRK-1U.',
-        'Si el contexto no contiene la respuesta específica, dilo explícitamente y pide una aclaración; no inventes secuencias.',
+        CHATBOT_SYSTEM_PROMPT,
         outputFormat === 'html'
           ? [
               'FORMATO DE SALIDA: Devuelve SOLO HTML básico (sin Markdown, sin bloques de código).',
               'Etiquetas permitidas: <p>, <br>, <ul>, <ol>, <li>, <strong>, <em>, <blockquote>.',
               'No uses atributos (sin style, sin class, sin onclick, etc.).',
-              'Incluye emojis con moderación (1-3 por respuesta) para hacerla más amigable.',
-              'Hazla un poco más desarrollada: 2-4 párrafos y, cuando aplique, una lista de pasos.',
             ].join('\n')
-          : 'FORMATO DE SALIDA: Texto plano (sin Markdown). Da una respuesta clara y un poco más desarrollada.',
-        knowledgeSnippetsText.length > 0 ? `\nCONTEXTO:\n${knowledgeSnippetsText}` : '\nCONTEXTO: (vacío)',
-      ].join('\n'),
+          : 'FORMATO DE SALIDA: Texto plano (sin Markdown).',
+        knowledgeSnippetsText.length > 0 ? `\nCONTEXTO DE REFERENCIA:\n${knowledgeSnippetsText}` : '',
+      ].filter(Boolean).join('\n\n'),
     }
 
     const messagesWithContext = [knowledgeSystemMessage, ...body.messages]
