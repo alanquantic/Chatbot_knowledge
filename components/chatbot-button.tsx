@@ -5,6 +5,7 @@ import { Loader2, MessageCircle, Send, X } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { useTranslations } from 'next-intl';
+import { sanitizeChatbotHtml } from '@/lib/sanitize-chatbot-html';
 
 export function ChatbotButton() {
   const t = useTranslations('chatbot');
@@ -12,6 +13,7 @@ export function ChatbotButton() {
   const [input, setInput] = useState<string>('');
   const [isSending, setIsSending] = useState<boolean>(false);
   const endRef = useRef<HTMLDivElement | null>(null);
+  const [outputFormat, setOutputFormat] = useState<'html' | 'text'>('html');
 
   type ChatRole = 'user' | 'assistant';
   type ChatMessage = {
@@ -46,10 +48,8 @@ export function ChatbotButton() {
     setIsSending(true);
     setInput('');
 
-    const nextMessages: ChatMessage[] = [
-      ...messages,
-      { role: 'user', content: trimmed },
-    ];
+    // Usar update funcional para evitar closures “stale”
+    const nextMessages: ChatMessage[] = [...messages, { role: 'user', content: trimmed }];
     setMessages(nextMessages);
 
     try {
@@ -65,14 +65,25 @@ export function ChatbotButton() {
       });
 
       if (!res.ok) {
+        // Intentar extraer un error legible (JSON o texto)
         const raw = await res.text();
-        throw new Error(raw || `HTTP ${res.status}`);
+        try {
+          const parsed = JSON.parse(raw) as { error?: string; hint?: string }
+          const msg = [parsed.error, parsed.hint].filter(Boolean).join(' — ')
+          throw new Error(msg || raw || `HTTP ${res.status}`)
+        } catch {
+          throw new Error(raw || `HTTP ${res.status}`)
+        }
       }
 
       const data: unknown = await res.json();
-      const message = (data as { message?: string }).message;
+      const payload = data as { message?: string; format?: string };
+      const message = payload.message;
       if (!message) {
         throw new Error(t('invalidResponse'));
+      }
+      if (payload.format === 'text' || payload.format === 'html') {
+        setOutputFormat(payload.format);
       }
 
       setMessages([...nextMessages, { role: 'assistant', content: message }]);
@@ -138,13 +149,20 @@ export function ChatbotButton() {
                 >
                   <div
                     className={[
-                      'max-w-[85%] rounded-2xl px-4 py-2 text-sm whitespace-pre-wrap',
+                      'max-w-[85%] rounded-2xl px-4 py-2 text-sm',
                       m.role === 'user'
                         ? 'bg-purple-600 text-white'
                         : 'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100',
                     ].join(' ')}
                   >
-                    {m.content}
+                    {outputFormat === 'html' && m.role === 'assistant' ? (
+                      <div
+                        className="chatbot-html"
+                        dangerouslySetInnerHTML={{ __html: sanitizeChatbotHtml(m.content) }}
+                      />
+                    ) : (
+                      <span className="whitespace-pre-wrap">{m.content}</span>
+                    )}
                   </div>
                 </div>
               ))}

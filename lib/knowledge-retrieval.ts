@@ -1,4 +1,6 @@
 import { z } from 'zod'
+import { readFile } from 'fs/promises'
+import path from 'path'
 
 export type KnowledgeDocId =
   | 'grabovoi_database.json'
@@ -134,6 +136,20 @@ function parseMarkdownSections(markdown: string): MarkdownSection[] {
 }
 
 async function fetchUtf8(baseUrl: string, relativePath: string): Promise<string> {
+  // En Vercel Preview con Deployment Protection (SSO), fetch a /data/* puede devolver 401.
+  // Como esto corre del lado servidor (API routes), preferimos leer desde filesystem.
+  if (typeof window === 'undefined') {
+    const cleaned = relativePath.startsWith('/') ? relativePath.slice(1) : relativePath
+    const filePath = path.join(process.cwd(), 'public', cleaned.replace(/^public\//, ''))
+    try {
+      return await readFile(filePath, 'utf8')
+    } catch (err) {
+      // Fallback a fetch (útil en entornos donde los archivos no estén disponibles como fs)
+      const message = err instanceof Error ? err.message : String(err)
+      console.error(`[knowledge] No se pudo leer ${filePath} desde fs, fallback a fetch: ${message}`)
+    }
+  }
+
   const url = new URL(relativePath, baseUrl)
   const res = await fetch(url, { cache: 'no-store' })
   if (!res.ok) {
