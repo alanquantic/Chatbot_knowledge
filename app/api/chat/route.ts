@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
 import { retrieveKnowledgeContext } from '@/lib/knowledge-retrieval'
+import { CHATBOT_SYSTEM_PROMPT } from '@/lib/chatbot-system-prompt'
 
 export const dynamic = 'force-dynamic'
 

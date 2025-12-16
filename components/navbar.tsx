@@ -176,7 +176,7 @@ export function Navbar() {
                   const newLocale: Locale = checked ? 'en' : 'es';
                   router.replace(pathname, { locale: newLocale });
                 }}
-                aria-label={t('language')}
+              aria-label={t('language')}
                 className="data-[state=checked]:bg-primary"
               />
               <span className={`text-xs font-medium ${locale === 'en' ? 'text-primary' : 'text-muted-foreground'}`}>
